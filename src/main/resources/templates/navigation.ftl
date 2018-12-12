@@ -12,8 +12,6 @@
             <h3>Family Guy</h3>
             <ul class="uk-list uk-link-text">
                 <li><a href="/">На главную</a></li>
-                <li><a href="/">Сезоны</a></li>
-                <li><a href="/">Персонажи</a></li>
                 <li><a href="/">Обратная связь</a></li>
                 <li><a href="/login">Вход</a></li>
             </ul>
