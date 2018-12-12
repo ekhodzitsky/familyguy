@@ -15,10 +15,12 @@
     <h1 class="uk-heading-line uk-text-center"><span style="font-family: 'Family Guy',serif">Family Guy</span></h1>
     <form action="/login" method="post">
         <div class="uk-margin">
-            <input class="uk-input uk-form-default uk-form-width-medium" type="text" name="username" placeholder="username">
+            <input class="uk-input uk-form-default uk-form-width-medium" type="text" name="username"
+                   placeholder="username">
         </div>
         <div class="uk-margin">
-            <input class="uk-input uk-form-default uk-form-width-medium" type="text" name="password" placeholder="password">
+            <input class="uk-input uk-form-default uk-form-width-medium" type="text" name="password"
+                   placeholder="password">
         </div>
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <button class="uk-button uk-button-default" type="submit">Ok</button>

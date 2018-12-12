@@ -1,7 +1,8 @@
 <#import "common.ftl" as c>
 <@c.common>
     <div uk-grid>
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-2">
+    <div class="uk-width-1-3"></div>
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-4">
     <h3>Добавить видео</h3>
     <form class="uk-form-horizontal" enctype="multipart/form-data" action="/upload" method="post">
     <div class="uk-margin">
@@ -26,7 +27,9 @@
     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
     </form>
     </div>
-    <div class="uk-card uk-card-default uk-card-body uk-width-1-2">
+
+
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-4">
 <h3>Удалить видео</h3>
     <form class="uk-form-horizontal" enctype="multipart/form-data" action="/delete"
           method="post">
