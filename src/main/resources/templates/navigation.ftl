@@ -1,29 +1,39 @@
 <#macro navigation>
     <!-- Navigation/S -->
-    <div class="uk-position-top-left">
-        <a class="uk-navbar-toggle" uk-toggle="target: #offcanvas-overlay">
-            <span uk-navbar-toggle-icon style="color: black"></span>
-            <span class="uk-margin-small-left" style="color: black">Меню</span>
-        </a>
+    <nav class="uk-navbar-container" style="background-color: #ffd152" uk-navbar>
+    <div class="uk-navbar-center">
+    <ul class="uk-navbar-nav">
+        <a class="uk-navbar-item uk-logo"
+           style="font-size: 300%; text-shadow: 1px 1px 6px black; color: #0099cc; font-family: 'Family Guy', cursive">Family
+            Guy</a>
+    </ul>
+    <div class="uk-navbar-item">
+
+    <div class="uk-margin-right">
+    <form action="/" method="get">
+    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+<button class="uk-button uk-button-text" style="font-size: 110%; font-family: 'Family Guy', cursive"
+        type="submit"><b>Главная</b></button>
+    </form>
     </div>
-    <div id="offcanvas-overlay" uk-offcanvas="overlay: true">
-        <div class="uk-offcanvas-bar">
-            <button class="uk-offcanvas-close" type="button" uk-close></button>
-            <h3>Family Guy</h3>
-            <ul class="uk-list uk-link-text">
-                <li><a href="/">На главную</a></li>
-                <li><a href="/">Обратная связь</a></li>
-                <li><a href="/login">Вход</a></li>
-            </ul>
-            <hr>
-            <p>«Гриффины» (англ. Family Guy, дословно «Семьянин») -
-                это мультсериал о типичной неблагополучной американской семье,
-                главная особенность которого - жесткая сатира, не признающая рамок,
-                тонкость и неординарность юмора. Шутки на различные щепетильные и
-                спорные темы (такие как наркомания, феминизм, ожирение и другие),
-                приправленные обилием сексуальных сцен,
-                крови и мата никого не оставят равнодушным. </p>
-        </div>
+
+    <div class="uk-margin-right">
+    <form action="/login" method="get">
+<input type="hidden" name="_csrf" value="${_csrf.token}"/>
+<button class="uk-button uk-button-text" style="font-size: 110%; font-family: 'Family Guy', cursive"
+        type="submit"><b>Вход</b></button>
+    </form>
     </div>
+
+    <div class="uk-margin-right">
+    <form action="/" method="get">
+<input type="hidden" name="_csrf" value="${_csrf.token}"/>
+    <button class="uk-button uk-button-text" style="font-size: 110%; font-family: 'Family Guy', cursive"
+            type="submit"><b>Обратная связь</b></button>
+    </form>
+    </div>
+    </div>
+    </div>
+    </nav>
     <!-- Navigation/E -->
 </#macro>
