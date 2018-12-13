@@ -70,7 +70,16 @@ public class VideoService implements BasicVideoManager {
         for (Video v : videoRepo.findAll()) {
             if (v.getSeason() == season) episodes.add(v);
         }
+
+        VideoEpisodesComparator vec = new VideoEpisodesComparator();
+        episodes.sort(vec);
         return episodes;
+    }
+
+    private class VideoEpisodesComparator implements Comparator<Video> {
+        public int compare(Video a, Video b){
+            return a.getEpisode().compareTo(b.getEpisode());
+        }
     }
 
     /**
