@@ -9,6 +9,7 @@ import ru.free4all.familyguy.repos.UserRepo;
 
 @Service
 public class UserService implements UserDetailsService {
+
     @Autowired
     private UserRepo userRepo;
 
