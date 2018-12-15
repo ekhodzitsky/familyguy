@@ -80,28 +80,13 @@
     <div class="uk-margin-remove-left" uk-grid>
         <div class="uk-text-center uk-align-center">
             <h4 style="font-family: 'Neucha', cursive"><b>Понравился сайт? Расскажи о нём в социальных сетях :</b></h4>
-            <script type="text/javascript">(function () {
-                    if (window.pluso) if (typeof window.pluso.start == "function") return;
-                    if (window.ifpluso == undefined) {
-                        window.ifpluso = 1;
-                        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                        s.type = 'text/javascript';
-                        s.charset = 'UTF-8';
-                        s.async = true;
-                        s.src = ('https:' == window.location.protocol ? 'https' : 'http') + '://share.pluso.ru/pluso-like.js';
-                        var h = d[g]('body')[0];
-                        h.appendChild(s);
-                    }
-                })();</script>
-            <div class="pluso" data-background="transparent" data-options="big,round,line,horizontal,counter,theme=08"
-                 data-services="vkontakte,odnoklassniki,facebook,twitter,google" data-url="http://www.familyguy.space"
-                 data-title="Гриффины Смотреть онлайн Все сезоны" data-description="«Гриффины» (англ. Family Guy, дословно «Семьянин») -
-                это мультсериал о типичной неблагополучной американской семье,
-                главная особенность которого - жесткая сатира, не признающая рамок,
-                тонкость и неординарность юмора. Шутки на различные щепетильные и
-                спорные темы (такие как наркомания, феминизм, ожирение и другие),
-                приправленные обилием сексуальных сцен,
-                крови и мата никого не оставят равнодушным."></div>
+            <!-- uSocial -->
+            <script async src="https://usocial.pro/usocial/usocial.js?v=6.1.4" data-script="usocial"
+                    charset="utf-8"></script>
+            <div class="uSocial-Share" data-pid="493d0e4a22b7db5663139ba6b43d99ed" data-type="share"
+                 data-options="round-rect,style2,default,absolute,horizontal,size48,eachCounter0,counter0"
+                 data-social="vk,ok,fb,twi,gPlus" data-mobile="vi,wa,sms"></div>
+            <!-- /uSocial -->
         </div>
 
 

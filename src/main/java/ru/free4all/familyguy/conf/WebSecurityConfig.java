@@ -26,7 +26,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/",
             "/login",
             "/static/**",
-            "/season/**"
+            "/season/**",
+            "/sitemap.xml",
+            "/robots.txt"
     };
 
     @Override
