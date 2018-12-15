@@ -17,6 +17,8 @@ public class RobotsController {
                             + "Disallow: /js\n"
                             + "Disallow: /css\n"
                             + "Disallow: /images\n"
+                            + "Disallow: /login\n"
+                            + "Disallow: /admin\n"
                             + "Sitemap: http://www.familyguy.space/sitemap.xml\n"
             );
         } catch (IOException e) {

@@ -7,8 +7,7 @@
         <div id="contact" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
                 <h5 class="uk-modal-title" style="font-family: 'Neucha', cursive"><b>Обратная связь</b></h5>
-                <p style="font-family: 'Neucha', serif">Привет! Жалобы и предложения направляйте на email: <b>familyguyspace.@gmail.com</b>
-                <p style="font-family: 'Neucha', serif">Они будут рассмотрены в течении 48 часов.</p>
+                <p style="font-family: 'Neucha', serif">Претензии правообладателей принимаются на email: <b>familyguyspace.@gmail.com</b>. В письме должны содержаться копии правоустанавливающих документов.</p>
                 <p class="uk-text-center">
                     <button class="uk-button uk-button-default uk-modal-close" type="button">Закрыть</button>
                 </p>
