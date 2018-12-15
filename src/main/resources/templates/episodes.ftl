@@ -1,7 +1,7 @@
 <#macro episodes_list>
     <#if episodes??>
         <ul class="uk-list">
-        <h2 class="uk-margin-large-top uk-text-center" style="font-family: 'Neucha', cursive">${episodes[0].season} сезон</h2>
+        <h2 class=" uk-text-center" style="font-family: 'Neucha', cursive">${episodes[0].season} сезон</h2>
         <#list episodes as e>
             <li>
             <div class="uk-animation-toggle">

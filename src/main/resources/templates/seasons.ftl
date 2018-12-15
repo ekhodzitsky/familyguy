@@ -2,7 +2,7 @@
     <!-- Seasons/S -->
     <#if seasons??>
         <ul class="uk-list">
-        <h2 class="uk-margin-large-top uk-text-center" style="font-family: 'Neucha', cursive">Сезоны</h2>
+        <h2 class="uk-text-center" style="font-family: 'Neucha', cursive">Сезоны</h2>
         <#list seasons as s>
             <li>
             <div class="uk-animation-toggle">
