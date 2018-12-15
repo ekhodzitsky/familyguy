@@ -88,6 +88,22 @@
             <version>2.3.0</version>
         </dependency>
 
+        <!-- SiteMap -->
+
+        <dependency>
+            <groupId>com.github.dfabulich</groupId>
+            <artifactId>sitemapgen4j</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <!-- JSR330 -->
+        <dependency>
+            <groupId>com.github.jsr-330</groupId>
+            <artifactId>core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
+
 
     </dependencies>
 
