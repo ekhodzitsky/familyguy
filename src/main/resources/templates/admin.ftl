@@ -1,3 +1,7 @@
+<#import "blocks/add.ftl" as a>
+<#import "blocks/remove.ftl" as r>
+<#import "blocks/list.ftl" as l>
+<#import "blocks/user_edit.ftl" as u>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,91 +21,35 @@
             <ul class="uk-nav uk-nav-default"
                 uk-switcher="connect: #component-nav; animation: uk-animation-fade; toggle: > :not(.uk-nav-header)">
                 <li><a href="#">Добавить</a></li>
+                <li><a href="#">Списки</a></li>
                 <li><a href="#">Удалить</a></li>
+                <li><a href="#">Редактировать пользователя</a></li>
             </ul>
-
         </div>
         <div class="uk-width-expand@m">
-
             <ul id="component-nav" class="uk-switcher">
                 <li>
-
-                    <div class="uk-section uk-section-muted uk-padding">
-                        <div class="uk-container">
-                            <h1 class="uk-text-center"
-                                style="font-family: 'Family Guy', cursive">Добавить видео</h1>
-                            <form class="uk-form-horizontal uk-margin-small" action="/upload" method="post">
-                                <div class="uk-margin-small">
-                                    <label class="uk-form-label" for="form-horizontal-text"
-                                           style="font-family: 'Neucha', cursive">Номер серии:</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" id="form-horizontal-text" type="text"
-                                               name="episode">
-                                    </div>
-                                </div>
-                                <div class="uk-margin-small">
-                                    <label class="uk-form-label" for="form-horizontal-text"
-                                           style="font-family: 'Neucha', cursive">Номер сезона:</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" id="form-horizontal-text" type="text" name="season">
-                                    </div>
-                                </div>
-                                <div class="uk-margin-small">
-                                    <label class="uk-form-label" for="form-horizontal-text"
-                                           style="font-family: 'Neucha', cursive">Ссылка на iframe:</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" id="form-horizontal-text" type="text" name="link">
-                                    </div>
-                                </div>
-                                <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
-                                    <button class="uk-button uk-button-default">Добавить</button>
-                                </div>
-                                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                            </form>
-                        </div>
-                    </div>
-
+                    <@a.add_video/>
                 </li>
                 <li>
-
-                    <div class="uk-section uk-section-muted uk-padding">
-                        <div class="uk-container">
-                            <h1 class="uk-text-center"
-                                style="font-family: 'Family Guy', cursive">Удалить видео</h1>
-                            <form class="uk-form-horizontal uk-margin-small" action="/delete" method="post">
-                                <div class="uk-margin-small">
-                                    <label class="uk-form-label" for="form-horizontal-text"
-                                           style="font-family: 'Neucha', cursive">Номер серии:</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" id="form-horizontal-text" type="text"
-                                               name="episode">
-                                    </div>
-                                </div>
-                                <div class="uk-margin-small">
-                                    <label class="uk-form-label" for="form-horizontal-text"
-                                           style="font-family: 'Neucha', cursive">Номер сезона:</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" id="form-horizontal-text" type="text" name="season">
-                                    </div>
-                                </div>
-                                <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
-                                    <button class="uk-button uk-button-default">Удалить</button>
-                                </div>
-                                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-                            </form>
-                        </div>
-                    </div>
+                    <@l.put_list/>
+                </li>
+                <li>
+                    <@r.remove_video/>
+                </li>
+                <li>
+                    <@u.edit_user/>
                 </li>
             </ul>
         </div>
     </div>
-    <#if message??>
-        <div uk-alert>
+        <#if message??>
+            <div uk-alert>
             <a class="uk-alert-close" uk-close></a>
             <h3 style="font-family: 'Neucha', cursive">Результат:</h3>
             <p style="font-family: 'Neucha', cursive">${message}</p>
-        </div>
-    </#if>
+            </div>
+        </#if>
     <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
         <p><a class="uk-link-text" style="font-family: 'Neucha', cursive" href="/"> Вернуться на главную</a></p>
     </div>

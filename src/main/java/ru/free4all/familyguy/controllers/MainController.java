@@ -37,14 +37,4 @@ public class MainController {
         titleService.setTitle(episode, season, model);
         return "index";
     }
-
-    @GetMapping("/admin")
-    public String admin() {
-        return "admin";
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
 }

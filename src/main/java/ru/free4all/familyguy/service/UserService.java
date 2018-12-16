@@ -10,8 +10,12 @@ import ru.free4all.familyguy.repos.UserRepo;
 @Service
 public class UserService implements UserDetailsService {
 
+    private final UserRepo userRepo;
+
     @Autowired
-    private UserRepo userRepo;
+    public UserService(UserRepo userRepo) {
+        this.userRepo = userRepo;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {

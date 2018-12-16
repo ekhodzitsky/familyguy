@@ -66,9 +66,6 @@
         </div>
         </div>
     </#if>
-
-
-        <!-- Basic/S -->
     <#if video??>
         <!-- Grid -->
         <div uk-grid>

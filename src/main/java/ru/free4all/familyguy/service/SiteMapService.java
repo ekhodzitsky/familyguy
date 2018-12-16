@@ -17,8 +17,12 @@ public class SiteMapService {
 
     private static final String BASE_URL = "http://www.familyguy.space";
 
+    private final VideoRepo videoRepo;
+
     @Autowired
-    private VideoRepo videoRepo;
+    public SiteMapService(VideoRepo videoRepo) {
+        this.videoRepo = videoRepo;
+    }
 
     public String createSiteMap() throws MalformedURLException {
         WebSitemapGenerator siteMap = new WebSitemapGenerator(BASE_URL);
