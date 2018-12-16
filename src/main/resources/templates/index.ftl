@@ -95,13 +95,11 @@
     <div class="uk-margin-remove-left" uk-grid>
         <div class="uk-text-center uk-align-center">
             <h5 style="font-family: 'Neucha', cursive"><b>Понравился сайт? Расскажи о нём в социальных сетях :</b></h5>
-            <!-- uSocial -->
-            <script async src="https://usocial.pro/usocial/usocial.js?v=6.1.4" data-script="usocial"
-                    charset="utf-8"></script>
-            <div class="uSocial-Share" data-pid="493d0e4a22b7db5663139ba6b43d99ed" data-type="share"
-                 data-options="round-rect,style2,default,absolute,horizontal,size48,eachCounter0,counter0"
-                 data-social="vk,ok,fb,twi,gPlus" data-mobile="vi,wa,sms"></div>
-            <!-- /uSocial -->
+            <!-- social -->
+            <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+            <script src="//yastatic.net/share2/share.js"></script>
+            <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram"></div>
+            <!-- /social -->
         </div>
 
 
