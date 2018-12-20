@@ -79,7 +79,7 @@
                 тестя Питера - Картера Пьютдершмидта, и даже ведущего новостей Тома Такера.</b>
         </p>
         <img class="uk-align-center uk-align-left@m uk-margin-remove-adjacent"
-             src="/static/images/Seth-Macfarlane-2.jpg" width="27%" height="27%" alt="Seth McFarlane 2">
+             src="/static/images/Seth-MacFarlane-2.jpg" width="27%" height="27%" alt="Seth McFarlane 2">
         <p class="for-text uk-text-justify">
             <b>
                 Еще учась в колледже, он создал небольшой мультфильм
