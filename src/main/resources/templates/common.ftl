@@ -14,7 +14,7 @@
     <div class="uk-container-expand">
     <div class="uk-position-relative">
     <#nested>
-        <!-- Footer/S -->
+        <!-- /footer -->
         <div class="uk-text-meta uk-text-center" style="font-size: 10px; margin-top: 20px">
             <p>«Гриффины» (англ. Family Guy, дословно «Семьянин») -
                 это мультсериал о типичной неблагополучной американской семье,
@@ -25,7 +25,7 @@
                 крови и мата никого не оставят равнодушным.</p>
             <p>created by alittlem1nd</p>
         </div>
-        <!-- Footer/E -->
+        <!-- /footer -->
 
         <div class="uk-position-top">
             <nav class="uk-navbar uk-navbar-container uk-margin uk-navbar-transparent">

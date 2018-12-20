@@ -27,6 +27,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css"/>
     <link rel="stylesheet" href="/static/css/fg-font.css">
+    <link rel="stylesheet" href="/static/css/bt-custom.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
@@ -59,33 +60,21 @@
     <@n.navigation/>
     <#if video??>
         <div uk-grid>
-        <div class="uk-width-expand uk-margin-medium-top uk-text-center">
-        <h2 style="font-family: 'Neucha', cursive">Смотреть онлайн <strong>${video.season}
-        <sup>сезон</sup> ${video.episode}
-        <sup>серия</sup></strong> :</h2>
-        </div>
-        </div>
-    </#if>
-    <#if video??>
-        <!-- Grid -->
-        <div uk-grid>
         <div class="uk-width-1-4">
         <div uk-grid>
         <div class="uk-width-1-3"></div>
         <div class="uk-width-2-3">
-        <div class="uk-section uk-section-muted">
-        <div class="uk-container">
         <@e.episodes_list/>
         </div>
         </div>
         </div>
-        </div>
-        </div>
-    <!-- Grid -->
-
-    <!-- Main column -->
         <div class="uk-width-expand">
-    <!-- Video -->
+
+            <div class="uk-width-expand uk-text-center">
+                <h2 style="font-family: 'Neucha', cursive">Смотреть онлайн <strong>${video.season}
+                        <sup>сезон</sup> ${video.episode}
+                        <sup>серия</sup></strong> :</h2>
+            </div>
         <div class="uk-margin-remove-left" uk-grid>
         <div class="uk-width-1-1 uk-height-large"
              style="min-height: 360px; box-shadow: 10px 10px 5px grey; background-color: black">
@@ -101,11 +90,7 @@
             <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram"></div>
             <!-- /social -->
         </div>
-
-
     </div>
-
-    <!-- Description/S -->
     <div uk-grid>
         <article class="uk-article">
             <p class="uk-article-meta uk-text-justify">«Гриффины» (англ. Family Guy, дословно «Семьянин») -
@@ -117,23 +102,16 @@
                 крови и мата никого не оставят равнодушным.</p>
         </article>
     </div>
-    <!-- Description/E -->
         </div>
-    <!-- Grid -->
         <div class="uk-width-1-4">
         <div uk-grid>
         <div class="uk-width-2-3">
-        <div class="uk-section uk-section-muted">
-        <div class="uk-container">
         <@s.seasons_list/>
-        </div>
-        </div>
         </div>
         <div class="uk-width-1-3">
         </div>
         </div>
         </div>
-        <!-- Grid -->
         </div>
     <#else>
         <div uk-grid>
@@ -141,7 +119,6 @@
         </div>
     </#if>
 </div>
-<!-- Basic/E -->
 <@f.footer/>
 </body>
 </html>
