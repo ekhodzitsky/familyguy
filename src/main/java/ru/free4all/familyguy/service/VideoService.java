@@ -71,7 +71,6 @@ public class VideoService implements BasicVideoManager {
         return video;
     }
 
-
     /**
      * Берет самую свежую серию сериала. Самую новую.
      * Устанавливает в зависимости от нее текущий сезон и серии этого сезона(список слева

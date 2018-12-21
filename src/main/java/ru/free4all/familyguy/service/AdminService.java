@@ -7,46 +7,38 @@ import org.springframework.ui.Model;
 import ru.free4all.familyguy.entities.Video;
 import ru.free4all.familyguy.repos.VideoRepo;
 
-import java.util.List;
-import java.util.Set;
+import java.util.Optional;
 
 @Service
 public class AdminService {
 
     private final VideoRepo videoRepo;
-    private final UtilsService utilsService;
 
     @Autowired
-    public AdminService(VideoRepo videoRepo, UtilsService utilsService) {
+    public AdminService(VideoRepo videoRepo) {
         this.videoRepo = videoRepo;
-        this.utilsService = utilsService;
-    }
-
-    public void list(Model model) {
-        List<Video> videos = videoRepo.findAll();
-        Set<Integer> seasons = utilsService.getAvailableSeasons();
-        if (!videos.isEmpty()) model.addAttribute("seasons", seasons);
-        String horror = "";
-        for(Integer i : seasons){
-            List<Video> videosOfConcreteSeason = utilsService.getAvailableEpisodes(i);
-            horror = horror + "<li><ul class=\"uk-list\">";
-            for(Video v : videosOfConcreteSeason) {
-                horror = horror + "<li>" + v.getEpisode() + " серия</li>";
-            }
-            horror = horror + "</ul></li>";
-        }
-        model.addAttribute("episodes", horror);
     }
 
     public void upload(String episode, String season, String link, Model model) {
+        boolean equal = false;
         if (episode != null && season != null && link != null && !link.equals("")) {
             if (NumberUtils.isCreatable(episode) && NumberUtils.isCreatable(season)) {
-                Video v = new Video();
-                v.setEpisode(Integer.parseInt(episode));
-                v.setSeason(Integer.parseInt(season));
-                v.setLink(link);
-                videoRepo.save(v);
-                model.addAttribute("message", "Видео добавлено.");
+                for (Video video : videoRepo.findAll()) {
+                    if (video.getEpisode() == Integer.parseInt(episode) && video.getSeason() == Integer.parseInt(season)) {
+                        equal = true;
+                        break;
+                    }
+                }
+                if (!equal) {
+                    Video v = new Video();
+                    v.setEpisode(Integer.parseInt(episode));
+                    v.setSeason(Integer.parseInt(season));
+                    v.setLink(link);
+                    videoRepo.save(v);
+                    model.addAttribute("message", "Видео добавлено.");
+                } else {
+                    model.addAttribute("message", "Такое видео уже есть. Ничего не добавлено.");
+                }
             } else {
                 model.addAttribute("message", "Вы ввели некорректные данные. Видео не добавлено.");
             }
@@ -70,6 +62,20 @@ public class AdminService {
             }
         } else {
             model.addAttribute("message", "Вы оставили какие-то поля пустыми. Ничего не удалено.");
+        }
+    }
+
+    public void deleteById(String id, Model model) {
+        if (id != null) {
+            Optional<Video> video = videoRepo.findById(Long.parseLong(id));
+            if (video.isPresent()) {
+                videoRepo.deleteById(Long.parseLong(id));
+                model.addAttribute("message", "Видео удалено");
+            }else {
+                model.addAttribute("message", "Такого видео не существует. Ничего не удалено.");
+            }
+        } else {
+            model.addAttribute("message", "Некорректный ввод.");
         }
     }
 }
