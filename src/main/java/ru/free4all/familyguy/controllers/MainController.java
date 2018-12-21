@@ -29,6 +29,11 @@ public class MainController {
         return "authors";
     }
 
+    @GetMapping("/rightholders")
+    public String rightHolders() {
+        return "rightholders";
+    }
+
     @GetMapping("/season/{season}")
     public String season(@PathVariable int season, Model model) {
         titleService.setTitle(season, model);
