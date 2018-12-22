@@ -2,6 +2,7 @@
 <#import "footer.ftl" as f>
 <#import "seasons.ftl" as s>
 <#import "episodes.ftl" as e>
+<#import "blocks/article.ftl" as a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,62 +62,64 @@
     <@n.navigation/>
     <#if video??>
         <div uk-grid>
-        <div class="uk-width-1-4">
-        <div uk-grid>
-        <div class="uk-width-1-3"></div>
-        <div class="uk-width-2-3">
-        <@e.episodes_list/>
-        </div>
-        </div>
-        </div>
-        <div class="uk-width-expand">
-
-            <div class="uk-width-expand uk-text-center">
-                <h2 style="font-family: 'Neucha', cursive">Смотреть онлайн <strong>${video.season}
-                        <sup>сезон</sup> ${video.episode}
-                        <sup>серия</sup></strong> :</h2>
+            <div class="uk-width-1-4">
+                <div uk-grid>
+                    <div class="uk-width-1-3"></div>
+                    <div class="uk-width-2-3">
+                        <@e.episodes_list/>
+                    </div>
+                </div>
             </div>
-        <div class="uk-margin-remove-left" uk-grid>
-        <div class="uk-width-1-1 uk-height-large"
-             style="min-height: 360px; box-shadow: 10px 10px 5px grey; background-color: black">
-        ${video.link}
-        </div>
-        </div>
-    <div class="uk-margin-remove-left" uk-grid>
-        <div class="uk-text-center uk-align-center">
-            <h5 style="font-family: 'Neucha', cursive"><b>Понравился сайт? Расскажи о нём в социальных сетях :</b></h5>
-            <!-- social -->
-            <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-            <script src="//yastatic.net/share2/share.js"></script>
-            <div class="ya-share2" data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram"></div>
-            <!-- /social -->
-        </div>
-    </div>
-    <div uk-grid>
-        <article class="uk-article">
-            <p class="uk-article-meta uk-text-justify">«Гриффины» (англ. Family Guy, дословно «Семьянин») -
-                это мультсериал о типичной неблагополучной американской семье,
-                главная особенность которого - жесткая сатира, не признающая рамок,
-                тонкость и неординарность юмора. Шутки на различные щепетильные и
-                спорные темы (такие как наркомания, феминизм, ожирение и другие),
-                приправленные обилием сексуальных сцен,
-                крови и мата никого не оставят равнодушным.</p>
-        </article>
-    </div>
-        </div>
-        <div class="uk-width-1-4">
-        <div uk-grid>
-        <div class="uk-width-2-3">
-        <@s.seasons_list/>
-        </div>
-        <div class="uk-width-1-3">
-        </div>
-        </div>
-        </div>
+            <div class="uk-width-expand">
+
+                <div class="uk-width-expand uk-text-center">
+                    <h2 style="font-family: 'Neucha', cursive">Смотреть онлайн <strong>${video.season}
+                            <sup>сезон</sup> ${video.episode}
+                            <sup>серия</sup></strong> :</h2>
+                </div>
+                <div class="uk-margin-remove-left" uk-grid>
+                    <div class="uk-width-1-1 uk-height-large"
+                         style="min-height: 360px; box-shadow: 10px 10px 5px grey; background-color: black">
+                        ${video.link}
+                    </div>
+                </div>
+                <@a.put_article/>
+                <hr>
+                <div class="uk-flex uk-flex-wrap">
+                    <div class="uk-text-center uk-width-1-2">
+                            <h5 style="font-family: 'Neucha', cursive"><b>Понравился сайт? Расскажи о нём в социальных
+                                    сетях :</b></h5>
+                        <!-- social -->
+                        <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                        <script src="//yastatic.net/share2/share.js"></script>
+                        <div class="ya-share2"
+                             data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram">
+                        </div>
+                        <!-- /social -->
+                    </div>
+                    <div class="uk-text-center uk-width-1-2">
+                        <h5 style="font-family: 'Neucha', cursive"><b>Наша группа Вконтакте :</b></h5>
+                        <a href="https://vk.com/familyguy.space">
+                            <img src="/static/images/vk-logo.png" width="32px" height="32px" alt="vk-logo">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="uk-width-1-4">
+                <div uk-grid>
+                    <div class="uk-width-2-3">
+                        <@s.seasons_list/>
+                    </div>
+                    <div class="uk-width-1-3">
+                    </div>
+                </div>
+            </div>
         </div>
     <#else>
         <div uk-grid>
-            <h3 style="font-family: 'Neucha', cursive">Возникла непредвиденная ошибка. Контент не загружен.</h3>
+            <h3 style="font-family: 'Roboto Condensed', sans-serif;">Возникла непредвиденная ошибка. Контент не
+                загружен.</h3>
         </div>
     </#if>
 </div>

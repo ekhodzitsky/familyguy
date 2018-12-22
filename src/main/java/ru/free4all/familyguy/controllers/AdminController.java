@@ -39,18 +39,24 @@ public class AdminController {
                          @RequestParam("link") String l,
                          Model m) {
         adminService.upload(e, s, l, m);
-        return "admin";
-    }
-
-    @PostMapping("/delete")
-    public String delete(@RequestParam("episode") String e, @RequestParam("season") String s, Model m) {
-        adminService.delete(e, s, m);
+        m.addAttribute("list", videoRepo.findAll());
         return "admin";
     }
 
     @PostMapping("/deleteById")
     public String deleteById(@RequestParam("id") String id, Model m) {
         adminService.deleteById(id, m);
+        m.addAttribute("list", videoRepo.findAll());
+        return "admin";
+    }
+
+    @PostMapping("/userEdit")
+    public String editUser(@RequestParam("username") String username,
+                           @RequestParam("newUsername") String newUsername,
+                           @RequestParam("newPassword") String newPassword,
+                           Model m){
+        adminService.changeUserLoginAndPassword(username, newUsername, newPassword, m);
+        m.addAttribute("list", videoRepo.findAll());
         return "admin";
     }
 }

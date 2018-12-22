@@ -124,15 +124,13 @@
             <p style="font-family: 'Roboto Condensed', sans-serif;">
                 Все вышеперечисленные права действуют на территории Российской Федерации,
                 все вопросы, связанные, с выплатой вознаграждений авторам произведения
-                урегулированы Правообладателем, Правообладателю неизвестно
-                о претензиях третьих лиц, в отношении указанных прав.
+                урегулированы Правообладателем, Правообладателю не известно
+                о претензиях третьих лиц в отношении указанных прав.
             <p style="font-family: 'Roboto Condensed', sans-serif;">
                 «Дата. Подпись»
-            <p style="font-family: 'Roboto Condensed', sans-serif;">Отправлять на email: <b>familyguyspace.@gmail.com</b></p>
+            <p style="font-family: 'Roboto Condensed', sans-serif;">Отправлять на email: <b>familyguyspace@gmail.com</b></p>
         </div>
     </div>
-
-
     <@f.footer/>
 </div>
 </body>
