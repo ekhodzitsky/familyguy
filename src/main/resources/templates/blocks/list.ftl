@@ -6,7 +6,6 @@
                 <th style="font-family: 'Roboto Condensed', sans-serif;"><b>ID</b></th>
                 <th style="font-family: 'Roboto Condensed', sans-serif;"><b>Серия</b></th>
                 <th style="font-family: 'Roboto Condensed', sans-serif;"><b>Сезон</b></th>
-                <th style="font-family: 'Roboto Condensed', sans-serif;"><b>Ссылка</b></th>
             </tr>
             </thead>
             <tbody>
@@ -15,7 +14,6 @@
                     <td style="font-family: 'Roboto Condensed', sans-serif;">${l.id}</td>
                     <td style="font-family: 'Roboto Condensed', sans-serif;">${l.episode}</td>
                     <td style="font-family: 'Roboto Condensed', sans-serif;">${l.season}</td>
-                    <td>${l.link}</td>
                 </tr>
             </#list>
             </tbody>
