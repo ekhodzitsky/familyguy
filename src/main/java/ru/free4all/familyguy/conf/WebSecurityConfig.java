@@ -30,7 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/sitemap.xml",
             "/robots.txt",
             "/authors",
-            "/rightholders"
+            "/rightholders",
+            "/heroes"
     };
 
     @Override

@@ -17,6 +17,7 @@ public class SiteMapService {
 
     private static final String BASE_URL = "http://www.familyguy.space";
     private static final String AUTHORS_URL = "http://www.familyguy.space/authors";
+    private static final String HEROES_URL = "http://www.familyguy.space/heroes";
 
     private final VideoRepo videoRepo;
 
@@ -29,6 +30,7 @@ public class SiteMapService {
         WebSitemapGenerator siteMap = new WebSitemapGenerator(BASE_URL);
         siteMap.addUrl(BASE_URL);
         siteMap.addUrl(AUTHORS_URL);
+        siteMap.addUrl(HEROES_URL);
         List<Video> list = videoRepo.findAll();
         if (!list.isEmpty()) {
             Set<Integer> seasons = new TreeSet<>();

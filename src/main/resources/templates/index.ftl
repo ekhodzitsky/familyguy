@@ -31,6 +31,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
     <!-- Yandex.Metrika counter -->
@@ -60,6 +61,12 @@
 <body>
 <div class="uk-container-expand" uk-height-viewport="expand: true">
     <@n.navigation/>
+
+    <div class="uk-alert-warning uk-width-1-2 uk-align-center" uk-alert>
+        <a class="uk-alert-close" uk-close style="color: black"></a>
+        <p style="font-family: 'Roboto Condensed', sans-serif"><b>Сайт находится в вялой разработке. Контент понемногу допиливается, поэтому если чего-то нет, это скоро появится :)</b></p>
+    </div>
+
     <#if video??>
         <div uk-grid>
             <div class="uk-width-1-4">
@@ -73,9 +80,9 @@
             <div class="uk-width-expand">
 
                 <div class="uk-width-expand uk-text-center">
-                    <h2 style="font-family: 'Neucha', cursive">Смотреть онлайн <strong>${video.season}
+                    <h3 style="font-family: 'Neucha', cursive">Смотреть онлайн Гриффины <strong>${video.season}
                             <sup>сезон</sup> ${video.episode}
-                            <sup>серия</sup></strong> :</h2>
+                            <sup>серия</sup></strong> :</h3>
                 </div>
                 <div class="uk-margin-remove-left" uk-grid>
                     <div class="uk-width-1-1 uk-height-large"

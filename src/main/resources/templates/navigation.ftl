@@ -11,6 +11,11 @@
                     <a class="uk-link-reset for-a-nav" href="/authors">Создатели</a>
                 </div>
         </div>
+        <div class="uk-navbar-item">
+            <div class="uk-card uk-card-default uk-text-bold uk-text-center bt-custom-shape-nav">
+                <a class="uk-link-reset for-a-nav" href="/heroes">Персонажи</a>
+            </div>
+        </div>
     </div>
     </nav>
 </#macro>
