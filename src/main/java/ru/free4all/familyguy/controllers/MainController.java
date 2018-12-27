@@ -34,6 +34,11 @@ public class MainController {
         return "rightholders";
     }
 
+    @GetMapping("/license")
+    public String license() {
+        return "license";
+    }
+
     @GetMapping("/heroes")
     public String heroes() {
         return "heroes";

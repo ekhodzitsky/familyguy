@@ -10,7 +10,7 @@
                     один из главных персонажей сериала. Сет Макфарлейн озвучивает его своим обычным голосом.
                 </b>
             </p>
-            <p class="for-text uk-text-justify" style="font-family: Neucha, cursive;">
+            <p class="for-text uk-text-justify">
                 <b>
 
                 </b>

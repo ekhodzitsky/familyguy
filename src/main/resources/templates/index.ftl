@@ -1,8 +1,8 @@
-<#import "navigation.ftl" as n>
-<#import "footer.ftl" as f>
-<#import "seasons.ftl" as s>
-<#import "episodes.ftl" as e>
-<#import "blocks/article.ftl" as a>
+<#import "blocks/common/head.ftl" as h>
+<#import "blocks/common/navigation.ftl" as n>
+<#import "blocks/common/footer.ftl" as f>
+<#import "blocks/common/article.ftl" as a>
+<#import "blocks/episodes_and_seasons.ftl" as es>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,66 +23,37 @@
     <meta http-equiv="content-language" content="ru">
     <meta name="keywords"
           content="Семьянин, Гриффины, Смотреть, онлайн, все, сезоны, Стьюи, Брайан, Лоис, Питер, Мег, Гриффин, Family, guy, familyguy, ситком">
-    <meta name="google-site-verification" content="pk2omgmjxh2oSmRl99gaqWPSYU_iDu6Si7KefDgB-u8"/>
-    <meta name="yandex-verification" content="f6b1aa54f6c3cf38"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css"/>
-    <link rel="stylesheet" href="/static/css/fg-font.css">
-    <link rel="stylesheet" href="/static/css/bt-custom.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () {
-                (m[i].a = m[i].a || []).push(arguments)
-            };
-            m[i].l = 1 * new Date();
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        ym(51561824, "init", {
-            id: 51561824,
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true
-        });
+    <@h.put_head/>
+
+    <!-- VK comments -->
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
+
+    <script type="text/javascript">
+        VK.init({apiId: 6797858, onlyWidgets: true});
     </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/51561824" style="position:absolute; left:-9999px;" alt=""/></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"></script>
+    <!-- /VK comments -->
+
 </head>
 <body>
 <div class="uk-container-expand" uk-height-viewport="expand: true">
     <@n.navigation/>
-
-    <div class="uk-alert-warning uk-width-1-2 uk-align-center" uk-alert>
-        <a class="uk-alert-close" uk-close style="color: black"></a>
-        <p style="font-family: 'Roboto Condensed', sans-serif"><b>Сайт находится в вялой разработке. Контент понемногу допиливается, поэтому если чего-то нет, это скоро появится :)</b></p>
-    </div>
-
     <#if video??>
         <div uk-grid>
             <div class="uk-width-1-4">
                 <div uk-grid>
                     <div class="uk-width-1-3"></div>
                     <div class="uk-width-2-3">
-                        <@e.episodes_list/>
+                        <@es.put_episodes_and_seasons/>
                     </div>
                 </div>
             </div>
             <div class="uk-width-expand">
 
                 <div class="uk-width-expand uk-text-center">
-                    <h3 style="font-family: 'Neucha', cursive">Смотреть онлайн Гриффины <strong>${video.season}
+                    <h1>Смотреть онлайн Гриффины <strong>${video.season}
                             <sup>сезон</sup> ${video.episode}
-                            <sup>серия</sup></strong> :</h3>
+                            <sup>серия</sup></strong> :</h1>
                 </div>
                 <div class="uk-margin-remove-left" uk-grid>
                     <div class="uk-width-1-1 uk-height-large"
@@ -92,10 +63,15 @@
                 </div>
                 <@a.put_article/>
                 <hr>
+
+                <div id="vk_comments"></div>
+                <script type="text/javascript">
+                    VK.Widgets.Comments("vk_comments", {limit: 20, attach: "*"});
+                </script>
+
                 <div class="uk-flex uk-flex-wrap">
                     <div class="uk-text-center uk-width-1-2">
-                            <h5 style="font-family: 'Neucha', cursive"><b>Понравился сайт? Расскажи о нём в социальных
-                                    сетях :</b></h5>
+                        <h5>Понравился сайт? Расскажи о нём в социальных сетях: </h5>
                         <!-- social -->
                         <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
                         <script src="//yastatic.net/share2/share.js"></script>
@@ -105,7 +81,7 @@
                         <!-- /social -->
                     </div>
                     <div class="uk-text-center uk-width-1-2">
-                        <h5 style="font-family: 'Neucha', cursive"><b>Наша группа Вконтакте :</b></h5>
+                        <h5>Наша группа Вконтакте :</h5>
                         <a href="https://vk.com/familyguy.space">
                             <img src="/static/images/vk-logo.png" width="32px" height="32px" alt="vk-logo">
                         </a>
@@ -116,7 +92,6 @@
             <div class="uk-width-1-4">
                 <div uk-grid>
                     <div class="uk-width-2-3">
-                        <@s.seasons_list/>
                     </div>
                     <div class="uk-width-1-3">
                     </div>
@@ -125,8 +100,7 @@
         </div>
     <#else>
         <div uk-grid>
-            <h3 style="font-family: 'Roboto Condensed', sans-serif;">Возникла непредвиденная ошибка. Контент не
-                загружен.</h3>
+            <h5>Возникла непредвиденная ошибка. Контент не загружен.</h5>
         </div>
     </#if>
 </div>

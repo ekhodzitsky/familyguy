@@ -1,5 +1,6 @@
-<#import "navigation.ftl" as n>
-<#import "footer.ftl" as f>
+<#import "blocks/common/navigation.ftl" as n>
+<#import "blocks/common/footer.ftl" as f>
+<#import "blocks/common/head.ftl" as h>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,45 +14,13 @@
     <meta http-equiv="content-language" content="ru">
     <meta name="keywords"
           content="Семьянин, Гриффины, Смотреть, онлайн, все, сезоны, Стьюи, Брайан, Лоис, Питер, Мег, Гриффин, Family, guy, familyguy, ситком">
-    <meta name="google-site-verification" content="pk2omgmjxh2oSmRl99gaqWPSYU_iDu6Si7KefDgB-u8"/>
-    <meta name="yandex-verification" content="f6b1aa54f6c3cf38"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css"/>
-    <link rel="stylesheet" href="/static/css/fg-font.css">
-    <link rel="stylesheet" href="/static/css/bt-custom.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
-    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () {
-                (m[i].a = m[i].a || []).push(arguments)
-            };
-            m[i].l = 1 * new Date();
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-        ym(51561824, "init", {
-            id: 51561824,
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true
-        });
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/51561824" style="position:absolute; left:-9999px;" alt=""/></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js"></script>
+    <@h.put_head/>
 </head>
 <body>
 <div class="uk-container uk-container-expand">
     <@n.navigation/>
     <div class="uk-panel">
-        <h1 class="uk-heading" style="font-family: Neucha, cursive">Сет Макфарлейн</h1>
+        <h1 class="uk-heading">Сет Макфарлейн</h1>
         <img class="uk-align-center uk-align-right@m uk-margin-remove-adjacent"
              src="/static/images/Seth-Macfarlane.jpg" width="35%" height="35%" alt="Seth McFarlane">
         <p class="for-text uk-text-justify"><b>

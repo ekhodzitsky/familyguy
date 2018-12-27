@@ -1,0 +1,66 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Neucha', cursive;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Family Guy';
+    src: url('/static/fonts/famig.ttf') format('truetype');
+}
+
+.btn-standard {
+    background-color: transparent;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    border: solid 2px #ffd152;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 110%
+}
+
+.btn-standard:hover {
+    background-color: #ffd152;
+    border: solid 2px #ffd152;
+    font-size: 120%;
+}
+
+.btn-standard-without-increasing-size {
+    background-color: transparent;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    border: solid 2px #ffd152;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 110%
+}
+
+.btn-standard-without-increasing-size:hover {
+    background-color: #ffd152;
+    border: solid 2px #ffd152;
+}
+
+.fg-logo,
+.fg-logo:hover {
+    font-size: 320%;
+    text-shadow: 2px 2px 7px black;
+    color: #0099cc;
+    font-family: 'Family Guy', cursive;
+}
+
+.article{
+    background-color: transparent;
+    border: 2px solid #ffd152;
+    border-radius: 12px;
+    color: black;
+    font-size: 90%;
+    font-family: 'Open Sans', sans-serif;
+}
+.article:hover{
+    background-color: #ffd152;
+}
+

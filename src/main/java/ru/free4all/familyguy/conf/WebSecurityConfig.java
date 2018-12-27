@@ -31,7 +31,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/robots.txt",
             "/authors",
             "/rightholders",
-            "/heroes"
+            "/heroes",
+            "/license"
     };
 
     @Override

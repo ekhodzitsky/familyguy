@@ -1,7 +1,7 @@
 <#macro peter>
     <div class="uk-section uk-section-default">
         <div class="uk-container">
-            <h5 class="uk-modal-title" style="font-family: Neucha, cursive;"><b>Питер Гриффин</b></h5>
+            <h5 class="uk-modal-title"><b>Питер Гриффин</b></h5>
             <img class="uk-align-center uk-align-right@m uk-margin-remove-adjacent"
                  src="/static/images/heroes/Peter.png" width="28%" height="28%" alt="Peter Griffin">
             <p class="for-text uk-text-justify">
@@ -9,7 +9,7 @@
                     Питер Гриффин – один из основных персонажей сериала, озвученный Сетом Макфарлейном.
                 </b>
             </p>
-            <p class="for-text uk-text-justify" style="font-family: Neucha, cursive;">
+            <p class="for-text uk-text-justify">
                 <b>
                     Питер – тщеславный эгоист, уверенный в своей гениальности (хотя на самом деле –
                     умственно отсталый, о чем рассказано в 6 серии 4 сезона «Питормоз»),
@@ -23,8 +23,8 @@
                 </b>
             </p>
             <p>
-            <h5 style="font-family: Neucha, cursive;"><b>Некоторые факты</b></h5>
-            <ul class="uk-list uk-list-bullet" style="font-family: Neucha, cursive;">
+            <h5><b>Некоторые факты</b></h5>
+            <ul class="uk-list uk-list-bullet">
                 <li>
                     <b>
                         Любимое времяпрепровождение – смотреть телевизор. Питер проводит с телевизором
