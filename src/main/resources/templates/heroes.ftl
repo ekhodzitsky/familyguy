@@ -23,9 +23,9 @@
     <@h.put_head/>
 </head>
 <body>
-<div class="uk-container uk-container-expand">
+<div class="uk-container uk-container-expand" uk-height-viewport="expand: true">
     <@n.navigation/>
-    <ul uk-tab>
+    <ul class="uk-flex-center" uk-tab>
         <li><a href="#" style="font-size: 120%; font-weight: bold">Питер</a></li>
         <li><a href="#" style="font-size: 120%; font-weight: bold">Лоис</a></li>
         <li><a href="#" style="font-size: 120%; font-weight: bold">Брайан</a></li>
