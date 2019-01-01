@@ -1,8 +1,9 @@
 <#import "blocks/common/head.ftl" as h>
+<#import "blocks/common/names_desc_translations.ftl" as nd>
 <#import "blocks/common/navigation.ftl" as n>
 <#import "blocks/common/footer.ftl" as f>
 <#import "blocks/common/article.ftl" as a>
-<#import "blocks/episodes_and_seasons.ftl" as es>
+<#import "blocks/common/episodes_and_seasons.ftl" as es>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,12 +29,12 @@
     <@h.put_head/>
 </head>
 <body>
+<@n.navigation/>
 <div class="uk-container uk-container-expand" uk-height-viewport="expand: true">
-    <@n.navigation/>
     <#if video??>
         <div class="uk-container-large" uk-grid>
             <div class="uk-width-1-4">
-                        <@es.put_episodes_and_seasons/>
+                <@es.put_episodes_and_seasons/>
             </div>
             <div class="uk-width-expand">
 
@@ -41,27 +42,33 @@
                     <h1>Смотреть онлайн Гриффины <strong>${video.season}
                             <sup>сезон</sup> ${video.episode}
                             <sup>серия</sup></strong> :</h1>
+                    <@nd.put_names_and_desc_and_translations/>
                 </div>
-                <div class="uk-margin-remove-left" uk-grid>
-                    <div class="uk-width-1-1 uk-height-large"
-                         style="min-height: 360px; box-shadow: 10px 10px 5px grey; background-color: black">
-                        ${video.link}
-                    </div>
+
+                <div class="uk-width-1-1 uk-height-large uk-margin-remove-left" uk-grid
+                     style="min-height: auto; box-shadow: 8px 8px 4px darkgrey; background-color: black">
+                    <#if translation??>
+                        ${translation}
+                        <#else>${video.link}
+                    </#if>
                 </div>
+
                 <@a.put_article/>
+
                 <hr>
-                    <div class="uk-text-center">
-                        <h4>Понравился сайт? Расскажи о нём в социальных сетях: </h4>
-                        <!-- social -->
-                        <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-                        <script src="//yastatic.net/share2/share.js"></script>
-                        <div class="ya-share2"
-                             data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram">
-                        </div>
-                        <!-- /social -->
+                <div class="uk-text-center">
+                    <h4>Понравился сайт? Расскажи о нём в социальных сетях: </h4>
+                    <!-- social -->
+                    <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+                    <script src="//yastatic.net/share2/share.js"></script>
+                    <div class="ya-share2"
+                         data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram">
                     </div>
+                    <!-- /social -->
+                </div>
             </div>
         </div>
+    <#else>Контента пока нет.
     </#if>
 </div>
 <@f.footer/>

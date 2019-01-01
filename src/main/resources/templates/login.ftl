@@ -14,42 +14,28 @@
 </head>
 <body>
 <div class="uk-position-center">
-    <div class="uk-section uk-section-muted">
-        <div class="uk-container">
             <h1 class="uk-text-center"
                 style="text-shadow: 1px 1px 6px black; color: #0099cc; font-family: 'Family Guy', cursive">Family
                 Guy</h1>
-
-            <form class="uk-form-horizontal uk-margin-small" action="/login" method="post">
-
-                <div class="uk-margin-small">
-                    <label class="uk-form-label" for="form-horizontal-text">U:</label>
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="form-horizontal-text" type="text" name="username">
+            <form action="/login" method="post">
+                <fieldset class="uk-fieldset">
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-small" type="text" placeholder="Логин..." name="username">
                     </div>
-                </div>
-
-                <div class="uk-margin-small">
-                    <label class="uk-form-label" for="form-horizontal-text">P:</label>
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="form-horizontal-text" type="text" name="password">
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-small" type="text" placeholder="Пароль..." name="password">
                     </div>
-                </div>
-
-                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-
-                <div class="uk-text-right">
-                    <button class="uk-button uk-button-default" type="submit">Ok</button>
-                </div>
+                    <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
+                        <button class="uk-button uk-button-default btn-standard-without-increasing-size" type="submit">Войти</button>
+                    </div>
+                    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                    <hr>
+                    <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
+                        <p>Регистрация пока не реализована.</p>
+                        <p><a class="uk-link-text" href="/">Вернуться на главную</a></p>
+                    </div>
+                </fieldset>
             </form>
-
-            <hr>
-            <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
-                <p><b>Регистрация пока не реализована.</b></p>
-                <p><a class="uk-link-text" href="/"> Вернуться на главную</a></p>
-            </div>
         </div>
-    </div>
-</div>
 </body>
 </html>

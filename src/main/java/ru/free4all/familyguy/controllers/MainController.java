@@ -29,9 +29,9 @@ public class MainController {
         return "authors";
     }
 
-    @GetMapping("/rightholders")
+    @GetMapping("/rights")
     public String rightHolders() {
-        return "rightholders";
+        return "rights";
     }
 
     @GetMapping("/license")
@@ -55,6 +55,13 @@ public class MainController {
     public String watch(@PathVariable int season, @PathVariable int episode, Model model) {
         videoService.getEpisode(episode, season, model);
         titleService.setTitle(episode, season, model);
+        return "index";
+    }
+
+    @GetMapping("/season/{season}/episode/{episode}/{translation}")
+    public String watch(@PathVariable int season, @PathVariable int episode, @PathVariable String translation, Model m) {
+        videoService.getEpisode(episode, season, translation, m);
+        titleService.setTitle(episode, season, m);
         return "index";
     }
 }

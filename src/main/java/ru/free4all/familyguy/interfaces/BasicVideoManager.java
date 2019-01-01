@@ -30,4 +30,15 @@ public interface BasicVideoManager {
      * @param model   страница.
      */
     public void getEpisode(int episode, int season, Model model);
+
+    /**
+     * Пользователь выбрал конкретную серию конкретного сезона с определенным переводом.
+     * Загружается она. Список серий слева в зависимости от выбранного сезона.
+     *
+     * @param episode     выбранная серия.
+     * @param season      выбранный сезон.
+     * @param translation выбранный перевод.
+     * @param model       страница.
+     */
+    public void getEpisode(int episode, int season, String translation, Model model);
 }

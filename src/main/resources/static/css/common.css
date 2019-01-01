@@ -44,6 +44,29 @@ h1, h2, h3, h4, h5, h6 {
     border: solid 2px #ffd152;
 }
 
+.btn-translation {
+    background-color: #ffd152;
+    opacity: 0.6;
+    font-weight: bold;
+    border-radius: 6px;
+    color: black;
+}
+
+.btn-translation-active{
+    background-color: #ffd152;
+    font-weight: bold;
+    border-radius: 6px;
+    color: black;
+}
+
+.btn-translation:hover {
+    opacity: 1;
+    border-radius: 6px;
+    font-size: 110%;
+    font-weight: bold;
+    color: black;
+}
+
 .fg-logo,
 .fg-logo:hover {
     font-size: 320%;
@@ -52,15 +75,12 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Family Guy', cursive;
 }
 
-.article{
+.article {
     background-color: transparent;
     border: 2px solid #ffd152;
     border-radius: 12px;
     color: black;
     font-size: 90%;
     font-family: 'Open Sans', sans-serif;
-}
-.article:hover{
-    background-color: #ffd152;
 }
 

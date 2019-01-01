@@ -2,7 +2,7 @@
     <div class="uk-section uk-section-default">
         <div class="uk-container">
             <h5 class="uk-modal-title"><b>Лоис Гриффин</b></h5>
-            <img class="uk-align-center uk-align-left@m uk-margin-remove-adjacent"
+            <img class="uk-align-center uk-align-right@m uk-margin-remove-adjacent"
                  src="/static/images/heroes/Lois.png" width="10%" height="10%" alt="Peter Griffin">
             <p class="for-text uk-text-justify">
                 <b>

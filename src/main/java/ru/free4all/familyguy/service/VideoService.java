@@ -1,16 +1,33 @@
 package ru.free4all.familyguy.service;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import ru.free4all.familyguy.entities.Translation;
 import ru.free4all.familyguy.entities.Video;
 import ru.free4all.familyguy.interfaces.BasicVideoManager;
+import ru.free4all.familyguy.interfaces.UtilsService;
 import ru.free4all.familyguy.repos.VideoRepo;
 
 import java.util.*;
 
 @Service
 public class VideoService implements BasicVideoManager {
+
+    private static final Enum[] TRANSLATIONS = {
+            Translation.FILIZA,
+            Translation.COLDFILM,
+            Translation.JASKIER,
+            Translation.OMSKBIRD,
+            Translation.SUNSHINE
+    };
+
+    private static final String VIDEO_ATTR = "video";
+    private static final String TRANSLATION_ATTR = "translation";
+    private static final String TR_ACTIVE_ATTR = "tr_active";
+    private static final String EPISODES_ATTR = "episodes";
+    private static final String SEASONS_ATTR = "seasons";
 
     private final VideoRepo videoRepo;
     private final UtilsService utilsService;
@@ -71,34 +88,93 @@ public class VideoService implements BasicVideoManager {
         return video;
     }
 
+    private void chooseTranslationIfExists(Video v, Model m){
+        if (!v.getLinks().isEmpty()) {
+            if (v.getLinks().containsKey(Translation.FILIZA)) {
+                m.addAttribute("translation", v.getLinks().get(Translation.FILIZA));
+                m.addAttribute("tr_active", Translation.FILIZA.getAuthority());
+            } else {
+                for(Enum e : TRANSLATIONS) {
+                    if(v.getLinks().containsKey(e)){
+                        m.addAttribute("translation", v.getLinks().get(e));
+                        m.addAttribute("tr_active", e.name());
+                        break;
+
+                    }
+                }
+            }
+        }
+    }
+
+    public Video findById(String id) {
+        Video result = null;
+        if (id != null && !id.equals("") && NumberUtils.isCreatable(id)) {
+            Optional<Video> video = videoRepo.findById(Long.parseLong(id));
+            if (video.isPresent()) {
+                result = video.get();
+            }
+        }
+        return result;
+    }
+
+    public Video findByEpisodeAndSeason(String episode, String season) {
+        Video result = null;
+        if (episode != null && !episode.equals("") && NumberUtils.isCreatable(episode)
+                && season != null && !season.equals("") && NumberUtils.isCreatable(season)) {
+            result = videoRepo.findByEpisodeAndSeason(Integer.parseInt(episode), Integer.parseInt(season));
+        }
+        return result;
+    }
+
+    /**
+     * Возвращает отсортированный список серий.
+     *
+     * @return List<Video>
+     */
+    public List<Video> findAllAndSort() {
+        List<Video> result = null;
+        Set<Integer> seasons = utilsService.getAvailableSeasons();
+        if (!seasons.isEmpty()) {
+            result = new ArrayList<>();
+            for (Integer i : seasons) {
+                result.addAll(utilsService.getAvailableEpisodes(i));
+            }
+        }
+        return result;
+    }
+
     /**
      * Берет самую свежую серию сериала. Самую новую.
      * Устанавливает в зависимости от нее текущий сезон и серии этого сезона(список слева
      * на отображаемой странице).
      *
-     * @param model страница.
+     * @param m страница.
      */
     @Override
-    public void getEpisode(Model model) {
-        Video fresh = getFresh();
-        model.addAttribute("video", fresh);
-        model.addAttribute("seasons", utilsService.getAvailableSeasons());
-        model.addAttribute("episodes", utilsService.getAvailableEpisodes(fresh.getSeason()));
+    public void getEpisode(Model m) {
+        Video f = getFresh();
+        if (f != null) {
+            m.addAttribute(VIDEO_ATTR, f);
+            m.addAttribute(SEASONS_ATTR, utilsService.getAvailableSeasons());
+            m.addAttribute(EPISODES_ATTR, utilsService.getAvailableEpisodes(f.getSeason()));
+            chooseTranslationIfExists(f, m);
+        }
     }
 
     /**
      * Пользователь выбирает сезон, загружается первая доступная серия этого сезона.
      * Устанавливается в зависимости от выбранного сезона список серий слева.
      *
-     * @param season выбранный сезон.
-     * @param model  страница.
+     * @param s выбранный сезон.
+     * @param m  страница.
      */
     @Override
-    public void getEpisode(int season, Model model) {
-        Video first = getFirstEpisodeOfSeason(season);
-        model.addAttribute("video", first);
-        model.addAttribute("seasons", utilsService.getAvailableSeasons());
-        model.addAttribute("episodes", utilsService.getAvailableEpisodes(first.getSeason()));
+    public void getEpisode(int s, Model m) {
+        Video f = getFirstEpisodeOfSeason(s);
+        m.addAttribute(VIDEO_ATTR, f);
+        m.addAttribute(EPISODES_ATTR, utilsService.getAvailableEpisodes(f.getSeason()));
+        m.addAttribute(SEASONS_ATTR, utilsService.getAvailableSeasons());
+        chooseTranslationIfExists(f, m);
     }
 
     /**
@@ -112,8 +188,30 @@ public class VideoService implements BasicVideoManager {
     @Override
     public void getEpisode(int episode, int season, Model model) {
         Video chosen = videoRepo.findByEpisodeAndSeason(episode, season);
-        model.addAttribute("video", chosen);
-        model.addAttribute("seasons", utilsService.getAvailableSeasons());
-        model.addAttribute("episodes", utilsService.getAvailableEpisodes(season));
+        model.addAttribute(VIDEO_ATTR, chosen);
+        chooseTranslationIfExists(chosen, model);
+        model.addAttribute(SEASONS_ATTR, utilsService.getAvailableSeasons());
+        model.addAttribute(EPISODES_ATTR, utilsService.getAvailableEpisodes(season));
+    }
+
+    /**
+     * Пользователь выбрал конкретную серию конкретного сезона с определенным переводом.
+     * Загружается она. Список серий слева в зависимости от выбранного сезона.
+     *
+     * @param e     выбранная серия.
+     * @param s     выбранный сезон.
+     * @param t выбранный перевод.
+     * @param m       страница.
+     */
+    @Override
+    public void getEpisode(int e, int s, String t, Model m) {
+        Video v = videoRepo.findByEpisodeAndSeason(e, s);
+        m.addAttribute(VIDEO_ATTR, v);
+        if (utilsService.isTranslationExists(v, t)) {
+            m.addAttribute(TRANSLATION_ATTR, v.getLinks().get(Translation.valueOf(t)));
+            m.addAttribute(TR_ACTIVE_ATTR, t);
+        }
+        m.addAttribute(SEASONS_ATTR, utilsService.getAvailableSeasons());
+        m.addAttribute(EPISODES_ATTR, utilsService.getAvailableEpisodes(s));
     }
 }

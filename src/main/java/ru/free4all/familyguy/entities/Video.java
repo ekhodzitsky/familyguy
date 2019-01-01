@@ -1,6 +1,7 @@
 package ru.free4all.familyguy.entities;
 
 import javax.persistence.*;
+import java.util.Map;
 
 @Entity
 public class Video {
@@ -10,8 +11,18 @@ public class Video {
     private Integer episode;
     private Integer season;
     private String link;
+    private String rusName;
+    private String engName;
+    private String description;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "video_id")
+    @MapKeyColumn(name = "translation")
+    private Map<Enum<Translation>, String> links;
 
-    public Video(){};
+    public Video() {
+    }
+
+    ;
 
     public Long getId() {
         return id;
@@ -43,5 +54,37 @@ public class Video {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getRusName() {
+        return rusName;
+    }
+
+    public void setRusName(String rusName) {
+        this.rusName = rusName;
+    }
+
+    public String getEngName() {
+        return engName;
+    }
+
+    public void setEngName(String engName) {
+        this.engName = engName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Map<Enum<Translation>, String> getLinks() {
+        return links;
+    }
+
+    public void setLinks(Map<Enum<Translation>, String> links) {
+        this.links = links;
     }
 }

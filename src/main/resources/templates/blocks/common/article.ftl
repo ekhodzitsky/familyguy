@@ -1,3 +1,4 @@
+<#-- Это описание сериала -->
 <#macro put_article>
     <div class="uk-margin-remove-left" uk-grid>
         <div class="uk-section uk-section-muted uk-padding-small article">
@@ -19,3 +20,4 @@
         </div>
     </div>
 </#macro>
+<#-- /Это описание сериала -->

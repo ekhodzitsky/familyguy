@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import ru.free4all.familyguy.entities.Translation;
 import ru.free4all.familyguy.entities.User;
 import ru.free4all.familyguy.entities.Video;
 import ru.free4all.familyguy.repos.UserRepo;
@@ -16,15 +17,18 @@ import java.util.Optional;
 public class AdminService {
 
     private final VideoRepo videoRepo;
+    private final VideoService videoService;
     private final UserRepo userRepo;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AdminService(VideoRepo videoRepo, UserRepo userRepo, PasswordEncoder passwordEncoder) {
+    public AdminService(VideoRepo videoRepo, VideoService videoService, UserRepo userRepo, PasswordEncoder passwordEncoder) {
         this.videoRepo = videoRepo;
+        this.videoService = videoService;
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;
     }
+
 
     public void upload(String episode, String season, String link, Model model) {
         boolean equal = false;
@@ -83,4 +87,62 @@ public class AdminService {
             m.addAttribute("message", "Пользователь не найден.");
         }
     }
+
+
+    public void editVideoAddNewTranslation(String id, String translation, String link, Model m) {
+        Video video = videoService.findById(id);
+        if (video != null && translation != null && link != null && !translation.equals("") && !link.equals("")) {
+            if (!video.getLinks().containsKey(Translation.valueOf(translation))) {
+                video.getLinks().put(Translation.valueOf(translation), link);
+                videoRepo.save(video);
+                m.addAttribute("message", "Перевод " + translation + " добавлен.");
+            } else {
+                m.addAttribute("message", "Видео с таким переводом уже есть.");
+            }
+        } else {
+            m.addAttribute("message", "Некорректный ввод.");
+        }
+    }
+
+    public void editVideoNames(String id, String rusName, String engName, Model m) {
+        Video video = videoService.findById(id);
+        if (video != null) {
+            if (!rusName.isEmpty() && !engName.isEmpty()) {
+                video.setRusName(rusName);
+                video.setEngName(engName);
+                videoRepo.save(video);
+                m.addAttribute("message", "Название видео добавлено");
+            } else {
+                m.addAttribute("message", "Поля были не заполнены.");
+            }
+        } else {
+            m.addAttribute("message", "Видео не найдено по этому id.");
+        }
+    }
+
+    public void editVideoDescription(String id, String description, Model m) {
+        Video video = videoService.findById(id);
+        if (video != null) {
+            if (!description.isEmpty()) {
+                video.setDescription(description);
+                videoRepo.save(video);
+                m.addAttribute("message", "Описание добавлено.");
+            } else {
+                m.addAttribute("message", "Вы оставили поле описание пустым.");
+            }
+        } else {
+            m.addAttribute("message", "Видео не найдено.");
+        }
+    }
+
+    /**
+     * Добавляет отсортированный список (объект) к html.
+     *
+     * @param m наша страница.
+     */
+    public void list(Model m) {
+        m.addAttribute("list", videoService.findAllAndSort());
+    }
 }
+
+
