@@ -19,6 +19,8 @@
                             <option>JASKIER</option>
                             <option>OMSKBIRD</option>
                             <option>SUNSHINE</option>
+                            <option>BAIBAKO</option>
+                            <option>KOSHARA</option>
                         </select>
                     </div>
 

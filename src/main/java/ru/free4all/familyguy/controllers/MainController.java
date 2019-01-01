@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import ru.free4all.familyguy.service.TitleService;
+import ru.free4all.familyguy.service.TitleServiceImpl;
 import ru.free4all.familyguy.service.VideoService;
 
 @Controller
@@ -15,7 +15,7 @@ public class MainController {
     private VideoService videoService;
 
     @Autowired
-    private TitleService titleService;
+    private TitleServiceImpl titleService;
 
     @GetMapping("/")
     public String main(Model model) {
@@ -61,7 +61,7 @@ public class MainController {
     @GetMapping("/season/{season}/episode/{episode}/{translation}")
     public String watch(@PathVariable int season, @PathVariable int episode, @PathVariable String translation, Model m) {
         videoService.getEpisode(episode, season, translation, m);
-        titleService.setTitle(episode, season, m);
+        titleService.setTitle(episode, season, translation, m);
         return "index";
     }
 }

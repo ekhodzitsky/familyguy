@@ -1,6 +1,5 @@
 package ru.free4all.familyguy.service;
 
-
 import com.redfin.sitemapgenerator.WebSitemapGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,14 +20,6 @@ public class SiteMapService {
     private static final String HEROES_URL = "http://www.familyguy.space/heroes";
     private static final String SEASON = "/season/";
     private static final String EPISODE = "/episode/";
-
-    private static final Enum[] TRANSLATIONS = {
-            Translation.FILIZA,
-            Translation.COLDFILM,
-            Translation.JASKIER,
-            Translation.OMSKBIRD,
-            Translation.SUNSHINE
-    };
 
     private final VideoRepo videoRepo;
 
@@ -56,7 +47,7 @@ public class SiteMapService {
             }
             for (Video video : list) {
                 if (!video.getLinks().isEmpty()) {
-                    for (Enum e : TRANSLATIONS) {
+                    for (Enum e : Translation.values()) {
                         if (video.getLinks().containsKey(e)) {
                             siteMap.addUrl(BASE_URL + SEASON + video.getSeason() + EPISODE + video.getEpisode() + "/" + e.name());
                         }

@@ -1,6 +1,5 @@
 package ru.free4all.familyguy.service;
 
-import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -10,18 +9,12 @@ import ru.free4all.familyguy.interfaces.BasicVideoManager;
 import ru.free4all.familyguy.interfaces.UtilsService;
 import ru.free4all.familyguy.repos.VideoRepo;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Service
 public class VideoService implements BasicVideoManager {
-
-    private static final Enum[] TRANSLATIONS = {
-            Translation.FILIZA,
-            Translation.COLDFILM,
-            Translation.JASKIER,
-            Translation.OMSKBIRD,
-            Translation.SUNSHINE
-    };
 
     private static final String VIDEO_ATTR = "video";
     private static final String TRANSLATION_ATTR = "translation";
@@ -88,14 +81,14 @@ public class VideoService implements BasicVideoManager {
         return video;
     }
 
-    private void chooseTranslationIfExists(Video v, Model m){
+    private void chooseTranslationIfExists(Video v, Model m) {
         if (!v.getLinks().isEmpty()) {
             if (v.getLinks().containsKey(Translation.FILIZA)) {
                 m.addAttribute("translation", v.getLinks().get(Translation.FILIZA));
                 m.addAttribute("tr_active", Translation.FILIZA.getAuthority());
             } else {
-                for(Enum e : TRANSLATIONS) {
-                    if(v.getLinks().containsKey(e)){
+                for (Enum e : Translation.values()) {
+                    if (v.getLinks().containsKey(e)) {
                         m.addAttribute("translation", v.getLinks().get(e));
                         m.addAttribute("tr_active", e.name());
                         break;
@@ -104,43 +97,6 @@ public class VideoService implements BasicVideoManager {
                 }
             }
         }
-    }
-
-    public Video findById(String id) {
-        Video result = null;
-        if (id != null && !id.equals("") && NumberUtils.isCreatable(id)) {
-            Optional<Video> video = videoRepo.findById(Long.parseLong(id));
-            if (video.isPresent()) {
-                result = video.get();
-            }
-        }
-        return result;
-    }
-
-    public Video findByEpisodeAndSeason(String episode, String season) {
-        Video result = null;
-        if (episode != null && !episode.equals("") && NumberUtils.isCreatable(episode)
-                && season != null && !season.equals("") && NumberUtils.isCreatable(season)) {
-            result = videoRepo.findByEpisodeAndSeason(Integer.parseInt(episode), Integer.parseInt(season));
-        }
-        return result;
-    }
-
-    /**
-     * Возвращает отсортированный список серий.
-     *
-     * @return List<Video>
-     */
-    public List<Video> findAllAndSort() {
-        List<Video> result = null;
-        Set<Integer> seasons = utilsService.getAvailableSeasons();
-        if (!seasons.isEmpty()) {
-            result = new ArrayList<>();
-            for (Integer i : seasons) {
-                result.addAll(utilsService.getAvailableEpisodes(i));
-            }
-        }
-        return result;
     }
 
     /**
@@ -166,7 +122,7 @@ public class VideoService implements BasicVideoManager {
      * Устанавливается в зависимости от выбранного сезона список серий слева.
      *
      * @param s выбранный сезон.
-     * @param m  страница.
+     * @param m страница.
      */
     @Override
     public void getEpisode(int s, Model m) {
@@ -198,10 +154,10 @@ public class VideoService implements BasicVideoManager {
      * Пользователь выбрал конкретную серию конкретного сезона с определенным переводом.
      * Загружается она. Список серий слева в зависимости от выбранного сезона.
      *
-     * @param e     выбранная серия.
-     * @param s     выбранный сезон.
+     * @param e выбранная серия.
+     * @param s выбранный сезон.
      * @param t выбранный перевод.
-     * @param m       страница.
+     * @param m страница.
      */
     @Override
     public void getEpisode(int e, int s, String t, Model m) {
