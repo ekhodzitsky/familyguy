@@ -10,8 +10,8 @@
     <@h.put_head/>
 </head>
 <body>
+<@n.navigation/>
 <div class="uk-container uk-container-expand">
-    <@n.navigation/>
     <div class="uk-section uk-section-default">
         <div class="uk-container">
             <h1 class="uk-modal-title"><b>Пользовательское соглашение</b></h1>

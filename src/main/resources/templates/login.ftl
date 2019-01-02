@@ -31,7 +31,7 @@
                     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                     <hr>
                     <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
-                        <p>Регистрация пока не реализована.</p>
+                        <p style="font-weight: bold">Регистрация пока не реализована.</p>
                         <p><a class="uk-link-text" href="/">Вернуться на главную</a></p>
                     </div>
                 </fieldset>

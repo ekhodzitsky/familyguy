@@ -1,6 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+    min-width: 768px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
     color: black;
 }
 
-.btn-translation-active{
+.btn-translation-active {
     background-color: #ffd152;
     font-weight: bold;
     border-radius: 6px;
@@ -84,3 +85,9 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Open Sans', sans-serif;
 }
 
+.btn-menu{
+    color: black;
+}
+.btn-menu:hover{
+    color: #ffd152;
+}

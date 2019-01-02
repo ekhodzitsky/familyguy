@@ -55,21 +55,20 @@
 
                 <@a.put_article/>
 
-                <hr>
-                <div class="uk-text-center">
-                    <h4>Понравился сайт? Расскажи о нём в социальных сетях: </h4>
-                    <!-- social -->
-                    <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
-                    <script src="//yastatic.net/share2/share.js"></script>
-                    <div class="ya-share2"
-                         data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram">
-                    </div>
-                    <!-- /social -->
-                </div>
             </div>
         </div>
     <#else>Контента пока нет.
     </#if>
+    <div class="uk-text-center uk-flex-center" uk-grid>
+        <h4>Понравился сайт? Расскажи о нём в социальных сетях: </h4>
+        <!-- social -->
+        <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+        <script src="//yastatic.net/share2/share.js"></script>
+        <div class="ya-share2"
+             data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram">
+        </div>
+        <!-- /social -->
+    </div>
 </div>
 <@f.footer/>
 </body>

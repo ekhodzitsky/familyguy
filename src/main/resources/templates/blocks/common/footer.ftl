@@ -1,11 +1,7 @@
 <#-- footer -->
 <#macro footer>
-    <div class="uk-text-meta uk-text-center uk-margin-top"
-         style="font-size: 80%">
-        <a href="/license" uk-toggle>Пользовательское соглашение</a>
-        <b> | </b>
-        <a href="/rights" uk-toggle>Правообладателям</a>
-        <b> | </b> created by alittlem1n<a class="uk-link-reset" href="/admin">d</a>, 2018
+    <div class="uk-text-meta uk-text-center uk-margin-large-top" style="font-size: 80%">
+       created by alittlem1nd, 2018-2019
     </div>
 </#macro>
 <#-- /footer -->

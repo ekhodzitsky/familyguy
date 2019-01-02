@@ -23,8 +23,8 @@
     <@h.put_head/>
 </head>
 <body>
+<@n.navigation/>
 <div class="uk-container uk-container-expand" uk-height-viewport="expand: true">
-    <@n.navigation/>
     <ul class="uk-flex-center" uk-tab>
         <li><a href="#" style="font-size: 120%; font-weight: bold">Питер</a></li>
         <li><a href="#" style="font-size: 120%; font-weight: bold">Лоис</a></li>

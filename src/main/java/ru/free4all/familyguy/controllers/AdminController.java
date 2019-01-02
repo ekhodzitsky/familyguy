@@ -17,6 +17,11 @@ public class AdminController {
     private AdminUserService adminUserService;
 
 
+    @GetMapping("/season_list")
+    public String seasonList() {
+        return "blocks/admin/season_list";
+    }
+
     /**
      * Залогиниться.
      *

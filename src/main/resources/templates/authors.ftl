@@ -17,8 +17,8 @@
     <@h.put_head/>
 </head>
 <body>
+<@n.navigation/>
 <div class="uk-container uk-container-expand" uk-height-viewport="expand: true">
-    <@n.navigation/>
     <div class="uk-panel">
         <h1 class="uk-heading">Сет Макфарлейн</h1>
         <img class="uk-align-center uk-align-right@m uk-margin-remove-adjacent"

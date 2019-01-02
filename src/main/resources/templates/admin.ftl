@@ -12,7 +12,6 @@
 
 <#import "blocks/common/navigation.ftl" as n>
 <#import "blocks/common/footer.ftl" as f>
-<#import "blocks/common/article.ftl" as ar>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +69,6 @@
     <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
         <p><a class="uk-link-text" href="/"> <b>Вернуться на главную</b></a></p>
     </div>
-    <@ar.put_article/>
     <@f.footer/>
 </div>
 </body>
