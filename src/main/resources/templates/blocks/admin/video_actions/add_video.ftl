@@ -27,6 +27,7 @@
                             <option>SUNSHINE</option>
                             <option>BAIBAKO</option>
                             <option>KOSHARA</option>
+                            <option>RENTV</option>
                         </select>
                     </div>
 

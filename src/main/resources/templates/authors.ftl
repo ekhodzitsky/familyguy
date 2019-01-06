@@ -8,12 +8,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="О создателях ситкома «Гриффины» (англ. Family Guy, дословно «Семьянин»).">
-    <meta property="og:title"
-          content="Создатели ситкома Гриффины (Family guy)">
+    <meta property="og:title" content="Создатели ситкома Гриффины (Family guy)">
     <meta property="og:description" content="О создателях ситкома «Гриффины» (англ. Family Guy, дословно «Семьянин»).">
     <meta http-equiv="content-language" content="ru">
-    <meta name="keywords"
-          content="Семьянин, Гриффины, Смотреть, онлайн, все, сезоны, Стьюи, Брайан, Лоис, Питер, Мег, Гриффин, Family, guy, familyguy, ситком">
+    <meta name="keywords" content="гриффин, создатель, макфарлейн">
     <@h.put_head/>
 </head>
 <body>

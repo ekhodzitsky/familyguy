@@ -18,8 +18,7 @@
     <meta property="og:title" content="Персонажи сериала Гриффины | Family guy">
     <meta property="og:description" content="Персонажи ситкома «Гриффины», описание.">
     <meta http-equiv="content-language" content="ru">
-    <meta name="keywords"
-          content="Гриффин, Смотреть, онлайн, все, сезон, Стьюи, Брайан, Лоис, Питер, Мег, Гриффин, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, серия">
+    <meta name="keywords" content="персонаж, сериал, гриффин, Питер, Лоис, Брайан, Стьюи, Крис, Мег, Куагмаер">
     <@h.put_head/>
 </head>
 <body>
