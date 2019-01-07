@@ -4,47 +4,51 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.free4all.familyguy.interfaces.AdminUserService;
 import ru.free4all.familyguy.interfaces.AdminVideoService;
+import ru.free4all.familyguy.interfaces.UtilsService;
 
 @Controller
-public class AdminController {
+@RequestMapping("/admin")
+public class AdminVideoController {
+
+    private final AdminVideoService adminVideoService;
+    private final UtilsService us;
+
     @Autowired
-    private AdminVideoService adminVideoService;
-    @Autowired
-    private AdminUserService adminUserService;
-
-
-    @GetMapping("/season_list")
-    public String seasonList() {
-        return "blocks/admin/season_list";
-    }
-
-    /**
-     * Залогиниться.
-     *
-     * @return страница с формой логина.
-     */
-    @GetMapping("/login")
-    public String login() {
-        return "login";
+    public AdminVideoController(AdminVideoService adminVideoService, UtilsService us) {
+        this.adminVideoService = adminVideoService;
+        this.us = us;
     }
 
     /**
      * Главная страница для администрирования.
      *
      * @param m модель.
-     * @return страницу admin.ftl
+     * @return страницу администрирования с добавлением нового видео.
      */
-    @GetMapping("/admin")
+    @GetMapping()
     public String admin(Model m) {
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/admin";
     }
 
+    /**
+     * Получение таблицы конкретного сезона.
+     *
+     * @param season номер сезона.
+     * @param m      страница.
+     * @return возвращает список.
+     */
+    @GetMapping("/list/{season}")
+    public String list(@PathVariable("season") String season, Model m) {
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        m.addAttribute("season", us.getSortedSeason(Integer.parseInt(season)));
+        return "blocks/admin/list";
+    }
 
     /**
      * Добавление нового видоса.
@@ -54,7 +58,7 @@ public class AdminController {
      * @param l ссылка на видос.
      * @param t перевод.
      * @param m модель страницы.
-     * @return страницу администрирования.
+     * @return страницу администрирования c формой добаления.
      */
     @PostMapping("/upload")
     public String upload(@RequestParam("episode") String e,
@@ -63,9 +67,14 @@ public class AdminController {
                          @RequestParam("link") String l,
                          Model m) {
         adminVideoService.addVideo(e, s, t, l, m);
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/admin";
+    }
+
+    @GetMapping("/translation")
+    public String toTranslation(Model m) {
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/translation";
     }
 
     /**
@@ -75,7 +84,7 @@ public class AdminController {
      * @param t  студия перевода.
      * @param i  ссылка на видео.
      * @param m  модель.
-     * @return страницу администрирования.
+     * @return страницу администрирования c формой изменения/добавления перевода.
      */
     @PostMapping("/add_translation")
     public String addTranslation(@RequestParam("id") String id,
@@ -83,9 +92,14 @@ public class AdminController {
                                  @RequestParam("link") String i,
                                  Model m) {
         adminVideoService.addTranslation(id, t, i, m);
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/translation";
+    }
+
+    @GetMapping("/names")
+    public String toNames(Model m) {
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/names";
     }
 
     /**
@@ -105,9 +119,14 @@ public class AdminController {
                                       @RequestParam("description") String d,
                                       Model m) {
         adminVideoService.addNamesDescription(id, r, e, d, m);
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/names";
+    }
+
+    @GetMapping("/remove")
+    public String toRemove(Model m) {
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/remove";
     }
 
     /**
@@ -120,40 +139,7 @@ public class AdminController {
     @PostMapping("/video_remove_by_id")
     public String deleteById(@RequestParam("id") String id, Model m) {
         adminVideoService.deleteById(id, m);
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
-    }
-
-    @PostMapping("/user_add")
-    public String addUser(@RequestParam("username") String u, @RequestParam("password") String p, Model m) {
-        adminUserService.add(u, p, m);
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
-    }
-
-    @PostMapping("/user_edit")
-    public String editUser(@RequestParam("id") String id, @RequestParam("newUsername") String u, @RequestParam("newPassword") String p, Model m) {
-        adminUserService.edit(id, u, p, m);
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
-    }
-
-    @PostMapping("/user_remove_by_id")
-    public String removeUserById(@RequestParam("id") String id, Model m) {
-        adminUserService.delete(id, m);
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
-    }
-
-    @PostMapping("/user_edit_role")
-    public String editUserRole(@RequestParam("id") String id, @RequestParam("role") String r, Model m) {
-        adminUserService.editRole(id, r, m);
-        adminVideoService.list(m);
-        adminUserService.list(m);
-        return "admin";
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/remove";
     }
 }

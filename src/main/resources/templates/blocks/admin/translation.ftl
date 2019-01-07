@@ -1,21 +1,26 @@
-<#-- Добавление видео. Включает в себя номер серии, номер сезона, ссылку на iframe и указание перевода. -->
-<#macro add_video>
-<#-- Секция -->
+<#import "../common/admin_navigation.ftl" as a>
+<#import "../common/admin_head.ftl" as h>
+<#import "../../blocks/common/footer.ftl" as f>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Гриффины | Переводы</title>
+    <@h.adm_head/>
+</head>
+<body>
+<@a.adm_nav/>
+<div class="uk-container uk-container-expand">
+    <#-- Секция -->
     <div class="uk-section uk-padding uk-width-1-2 uk-align-center">
         <div class="uk-container">
-
-            <form action="/upload" method="post">
+            <form action="/admin/add_translation" method="post">
 
                 <fieldset class="uk-fieldset">
-                    <legend class="uk-legend">Добавить видео</legend>
+                    <legend class="uk-legend">Добавить перевод</legend>
 
 
                     <div class="uk-margin">
-                        <input class="uk-input uk-form-small" type="text" placeholder="Номер серии..." name="episode">
-                    </div>
-
-                    <div class="uk-margin">
-                        <input class="uk-input uk-form-small" type="text" placeholder="Номер сезона..." name="season">
+                        <input class="uk-input uk-form-small" type="text" placeholder="Id видео..." name="id">
                     </div>
 
                     <div class="uk-margin">
@@ -35,14 +40,26 @@
                         <input class="uk-input uk-form-small" type="text" placeholder="Ссылка на iframe..." name="link">
                     </div>
 
-
                     <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
                         <button class="uk-button uk-button-default btn-standard-without-increasing-size" type="submit">Ок</button>
                     </div>
                     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 </fieldset>
             </form>
-            <#-- /Секция -->
         </div>
     </div>
-</#macro>
+    <#-- /Секция -->
+    <#if message??>
+        <div class="uk-alert-primary" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <h3>Результат:</h3>
+            <p>${message}</p>
+        </div>
+    </#if>
+    <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
+        <p><a class="uk-link-text" href="/"> <b>Вернуться на главную</b></a></p>
+    </div>
+    <@f.footer/>
+</div>
+</body>
+</html>

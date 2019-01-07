@@ -17,6 +17,16 @@ public class MainController {
         this.videoService = videoService;
     }
 
+    /**
+     * Залогиниться.
+     *
+     * @return страница с формой логина.
+     */
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @GetMapping("/")
     public String main(Model model) {
         videoService.getEpisode(model);

@@ -163,4 +163,21 @@ public class UtilsServiceImpl implements UtilsService {
         }
         return result;
     }
+
+    /**
+     * Получаем конкретный сезон уже отсортированный.
+     *
+     * @param season номер сезона.
+     * @return список серий.
+     */
+    @Override
+    public List<Video> getSortedSeason(int season) {
+        List<Video> result = new ArrayList<>();
+        for (Video v : findAllAndSort()) {
+            if (v.getSeason() == season) {
+                result.add(v);
+            }
+        }
+        return result;
+    }
 }

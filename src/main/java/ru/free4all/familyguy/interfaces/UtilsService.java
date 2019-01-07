@@ -69,4 +69,12 @@ public interface UtilsService {
      * @return список видео.
      */
     List<Video> findAllAndSort();
+
+    /**
+     * Получаем конкретный сезон уже отсортированный.
+     *
+     * @param season номер сезона.
+     * @return список серий.
+     */
+    List<Video> getSortedSeason(int season);
 }

@@ -19,6 +19,7 @@ public class RobotsController {
                             + "Disallow: /images\n"
                             + "Disallow: /login\n"
                             + "Disallow: /admin\n"
+                            + "Disallow: /user\n"
                             + "Disallow: /license\n"
                             + "Disallow: /rights\n"
                             + "Sitemap: http://www.familyguy.space/sitemap.xml\n"

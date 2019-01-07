@@ -1,13 +1,13 @@
 <#import "blocks/common/head.ftl" as h>
 <#import "blocks/common/navigation.ftl" as n>
 <#import "blocks/common/footer.ftl" as f>
-<#import "heroes/peter.ftl" as p>
-<#import "heroes/lois.ftl" as l>
-<#import "heroes/brian.ftl" as b>
-<#import "heroes/stewie.ftl" as s>
-<#import "heroes/chris.ftl" as c>
-<#import "heroes/meg.ftl" as m>
-<#import "heroes/quagmire.ftl" as q>
+<#import "blocks/heroes/peter.ftl" as p>
+<#import "blocks/heroes/lois.ftl" as l>
+<#import "blocks/heroes/brian.ftl" as b>
+<#import "blocks/heroes/stewie.ftl" as s>
+<#import "blocks/heroes/chris.ftl" as c>
+<#import "blocks/heroes/meg.ftl" as m>
+<#import "blocks/heroes/quagmire.ftl" as q>
 <!DOCTYPE html>
 <html lang="en">
 <head>

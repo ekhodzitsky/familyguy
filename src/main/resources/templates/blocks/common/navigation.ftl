@@ -1,5 +1,5 @@
 <#macro navigation>
-    <nav class="uk-navbar-container" style="background-color: transparent;" uk-navbar>
+    <nav class="uk-navbar-container" style="background-color: white;" uk-navbar>
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
                 <a class="uk-navbar-item uk-logo fg-logo" href="/">Family Guy</a>

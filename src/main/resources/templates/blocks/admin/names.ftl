@@ -1,10 +1,20 @@
-<#-- Редактирование видео. Вводишь id, названия и описание. -->
-<#macro add_video_names_description>
-<#-- Секция -->
+<#import "../common/admin_navigation.ftl" as a>
+<#import "../common/admin_head.ftl" as h>
+<#import "../../blocks/common/footer.ftl" as f>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Гриффины | Добавить название и описание</title>
+    <@h.adm_head/>
+</head>
+<body>
+<@a.adm_nav/>
+<div class="uk-container uk-container-expand">
+    <#-- Секция -->
     <div class="uk-section uk-padding uk-width-2-3 uk-align-center">
         <div class="uk-container">
 
-            <form action="/add_names_description" method="post">
+            <form action="/admin/add_names_description" method="post">
 
                 <fieldset class="uk-fieldset">
                     <legend class="uk-legend">Название и описание</legend>
@@ -33,7 +43,20 @@
                     <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                 </fieldset>
             </form>
-            <#-- /Секция -->
         </div>
     </div>
-</#macro>
+    <#-- /Секция -->
+    <#if message??>
+        <div class="uk-alert-primary" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <h3>Результат:</h3>
+            <p>${message}</p>
+        </div>
+    </#if>
+    <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
+        <p><a class="uk-link-text" href="/"> <b>Вернуться на главную</b></a></p>
+    </div>
+    <@f.footer/>
+</div>
+</body>
+</html>
