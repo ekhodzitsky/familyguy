@@ -12,7 +12,7 @@
 <body>
 <@n.navigation/>
 <div class="uk-container uk-container-expand">
-    <div class="uk-section uk-section-default">
+    <div class="uk-section uk-section-default uk-padding-remove-top">
         <div class="uk-container">
             <h5 class="uk-modal-title"><b>Правообладателям</b></h5>
             <p>

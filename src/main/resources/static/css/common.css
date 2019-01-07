@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-standard {
-    background-color: transparent;
+    background-color: #ffd152;
     color: black;
     font-family: 'Open Sans', sans-serif;
     border: solid 2px #ffd152;
@@ -25,8 +25,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-standard:hover {
-    background-color: #ffd152;
-    border: solid 2px #ffd152;
+    background-color: white;
+    border: solid 2px black;
     font-size: 120%;
 }
 
@@ -43,6 +43,20 @@ h1, h2, h3, h4, h5, h6 {
 .btn-standard-without-increasing-size:hover {
     background-color: #ffd152;
     border: solid 2px #ffd152;
+}
+
+.btn-nav-without-increasing-size{
+    background-color: #ffd152;
+    border: solid 2px #ffd152;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 110%
+}
+
+.btn-nav-without-increasing-size:hover{
+    background-color: white;
+    border: solid 2px black;
 }
 
 .btn-translation {
@@ -70,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .fg-logo,
 .fg-logo:hover {
-    font-size: 320%;
+    font-size: 270%;
     text-shadow: 2px 2px 7px black;
     color: #0099cc;
     font-family: 'Family Guy', cursive;

@@ -12,7 +12,7 @@
 <body>
 <@n.navigation/>
 <div class="uk-container uk-container-expand">
-    <div class="uk-section uk-section-default">
+    <div class="uk-section uk-section-default uk-padding-remove-top">
         <div class="uk-container">
             <h1 class="uk-modal-title"><b>Пользовательское соглашение</b></h1>
             <ul class="uk-list uk-list-bullet">
