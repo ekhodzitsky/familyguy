@@ -18,6 +18,7 @@
     <nav class="uk-navbar-container uk-margin-medium-bottom" style="background-color: #ffd152;" uk-navbar>
         <div class="uk-navbar-left">
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/">Главная</a>
+            <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/moments">Нарезки<sup style="color: red; font-size: 65%">new</sup></a>
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/heroes">Персонажи</a>
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/authors">Создатели
                 сериала</a>

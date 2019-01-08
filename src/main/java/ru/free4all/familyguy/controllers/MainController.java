@@ -5,16 +5,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import ru.free4all.familyguy.entities.Moments;
+import ru.free4all.familyguy.repos.MomentsRepo;
 import ru.free4all.familyguy.service.VideoService;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MainController {
 
     private final VideoService videoService;
+    private final MomentsRepo momentsRepo;
 
     @Autowired
-    public MainController(VideoService videoService) {
+    public MainController(VideoService videoService, MomentsRepo momentsRepo) {
         this.videoService = videoService;
+        this.momentsRepo = momentsRepo;
     }
 
     /**
@@ -31,6 +38,27 @@ public class MainController {
     public String main(Model model) {
         videoService.getEpisode(model);
         return "index";
+    }
+
+    @GetMapping("/moments")
+    public String moments(Model m) {
+        List<Moments> momentsList = momentsRepo.findAll();
+        if (!momentsList.isEmpty()) {
+            m.addAttribute("moments", momentsList);
+            m.addAttribute("moment", momentsList.get(momentsList.size() - 1));
+        }
+        return "moments";
+    }
+
+    @GetMapping("/moments/{id}")
+    public String moment(@PathVariable("id") String id, Model model) {
+        List<Moments> momentsList = momentsRepo.findAll();
+        if (!momentsList.isEmpty()) {
+            model.addAttribute("moments", momentsList);
+        }
+        Optional<Moments> moments = momentsRepo.findById(Long.parseLong(id));
+        moments.ifPresent(m -> model.addAttribute("moment", m));
+        return "moments";
     }
 
     @GetMapping("/authors")

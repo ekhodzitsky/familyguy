@@ -46,6 +46,15 @@
                     <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size uk-margin" href="/user/delete">Удалить</a>
                 </div>
             </div>
+            <div class="uk-inline">
+                <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size">Нарезки</a>
+                <div uk-dropdown="mode: click">
+                    <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size uk-margin" href="/admin/moments/add_page">Добавить</a>
+                    <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size uk-margin" href="/admin/moments/edit_page">Редактировать</a>
+                    <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size uk-margin" href="/admin/moments/remove_page">Удалить</a>
+                    <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size uk-margin" href="/admin/moments/list_page">Список</a>
+                </div>
+            </div>
         </div>
     </nav>
 </#macro>

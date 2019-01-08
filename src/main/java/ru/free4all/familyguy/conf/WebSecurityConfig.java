@@ -32,7 +32,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/authors",
             "/rights",
             "/heroes",
-            "/license"
+            "/license",
+            "/moments",
+            "/moments/**"
     };
 
     @Override

@@ -1,6 +1,13 @@
 package ru.free4all.familyguy.entities;
 
-import javax.persistence.*;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MapKeyColumn;
 import java.util.Map;
 
 @Entity
@@ -21,8 +28,6 @@ public class Video {
 
     public Video() {
     }
-
-    ;
 
     public Long getId() {
         return id;
