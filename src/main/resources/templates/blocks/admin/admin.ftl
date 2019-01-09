@@ -37,6 +37,7 @@
                             <option>BAIBAKO</option>
                             <option>KOSHARA</option>
                             <option>RENTV</option>
+                            <option>Wvoice</option>
                         </select>
                     </div>
 

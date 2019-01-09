@@ -4,7 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 public enum Translation implements GrantedAuthority {
 
-    FILIZA, COLDFILM, JASKIER, OMSKBIRD, SUNSHINE, KOSHARA, BAIBAKO, RENTV;
+    FILIZA, COLDFILM, JASKIER, OMSKBIRD, SUNSHINE, KOSHARA, BAIBAKO, RENTV, Wvoice;
 
     @Override
     public String getAuthority() {
