@@ -1,4 +1,4 @@
-package ru.free4all.familyguy.service;
+package ru.free4all.familyguy.service.admin;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import ru.free4all.familyguy.entities.Role;
 import ru.free4all.familyguy.entities.User;
-import ru.free4all.familyguy.interfaces.AdminUserService;
+import ru.free4all.familyguy.interfaces.admin.AdminUserService;
 import ru.free4all.familyguy.interfaces.InputValidationService;
 import ru.free4all.familyguy.interfaces.MessageService;
 import ru.free4all.familyguy.repos.UserRepo;

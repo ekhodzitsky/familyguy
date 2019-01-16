@@ -26,7 +26,7 @@
             <#list season as v>
                 <tbody>
                 <tr>
-                    <td>${v.id}</td>
+                    <td><b>[ id:</b> <a href="/admin/video_details/${v.id}">${v.id}</a> <b>]</b></td>
                     <td>${v.episode}</td>
                     <td>${v.season}</td>
                     <td><#if v.rusName??>${v.rusName}</#if></td>

@@ -1,4 +1,4 @@
-package ru.free4all.familyguy.controllers;
+package ru.free4all.familyguy.controllers.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.free4all.familyguy.interfaces.AdminVideoService;
 import ru.free4all.familyguy.interfaces.UtilsService;
+import ru.free4all.familyguy.interfaces.admin.AdminVideoServiceExtended;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminVideoController {
 
-    private final AdminVideoService adminVideoService;
+    private final AdminVideoServiceExtended adminVideoService;
     private final UtilsService us;
 
     @Autowired
-    public AdminVideoController(AdminVideoService adminVideoService, UtilsService us) {
+    public AdminVideoController(AdminVideoServiceExtended adminVideoService, UtilsService us) {
         this.adminVideoService = adminVideoService;
         this.us = us;
     }
@@ -141,5 +141,45 @@ public class AdminVideoController {
         adminVideoService.deleteById(id, m);
         m.addAttribute("seasons", us.getAvailableSeasons());
         return "blocks/admin/remove";
+    }
+
+    @GetMapping("/remove_translation")
+    public String toRemoveTranslation(Model m) {
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/remove_translation";
+    }
+
+    /**
+     * Удаление перевода.
+     *
+     * @param id    id видео.
+     * @param t     перевод.
+     * @param model страница.
+     * @return страницу удаления перевода.
+     */
+    @PostMapping("/video_remove_translation")
+    public String removeTranslation(@RequestParam("id") String id,
+                                    @RequestParam("translation") String t,
+                                    Model model) {
+        adminVideoService.removeTranslation(id, t, model);
+        model.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/remove_translation";
+    }
+
+    @PostMapping("/video_remove_translation/{id}/{translation}")
+    public String removeTranslationDirectly(@PathVariable("id") String id,
+                                            @PathVariable("translation") String t,
+                                            Model model) {
+        adminVideoService.removeTranslation(id, t, model);
+        model.addAttribute("seasons", us.getAvailableSeasons());
+        model.addAttribute("detailed", us.getIfExists(id));
+        return "blocks/admin/video_details";
+    }
+
+    @GetMapping("/video_details/{id}")
+    public String toVideoDetails(@PathVariable("id") String id, Model m) {
+        m.addAttribute("detailed", us.getIfExists(id));
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/video_details";
     }
 }

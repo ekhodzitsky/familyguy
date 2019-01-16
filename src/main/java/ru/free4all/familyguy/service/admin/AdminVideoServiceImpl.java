@@ -1,4 +1,4 @@
-package ru.free4all.familyguy.service;
+package ru.free4all.familyguy.service.admin;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import ru.free4all.familyguy.entities.Translation;
 import ru.free4all.familyguy.entities.Video;
-import ru.free4all.familyguy.interfaces.AdminVideoService;
+import ru.free4all.familyguy.interfaces.admin.AdminVideoService;
 import ru.free4all.familyguy.interfaces.InputValidationService;
 import ru.free4all.familyguy.interfaces.MessageService;
 import ru.free4all.familyguy.interfaces.UtilsService;
@@ -17,13 +17,13 @@ import java.util.TreeMap;
 @Service
 public class AdminVideoServiceImpl implements AdminVideoService {
     @Autowired
-    private MessageService messageService;
+    protected MessageService messageService;
     @Autowired
-    private InputValidationService inputValidationService;
+    protected InputValidationService inputValidationService;
     @Autowired
-    private UtilsService utilsService;
+    protected UtilsService utilsService;
     @Autowired
-    private VideoRepo videoRepo;
+    protected VideoRepo videoRepo;
 
     /**
      * Добавление видео в базу.

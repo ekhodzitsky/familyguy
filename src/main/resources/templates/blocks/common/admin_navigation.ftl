@@ -36,6 +36,7 @@
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/admin/translation">Перевод</a>
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/admin/names">Описание</a>
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/admin/remove">Удалить</a>
+            <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/admin/remove_translation">Удалить перевод</a>
             <div class="uk-inline">
                 <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size">Пользователи</a>
                 <div uk-dropdown="mode: click">

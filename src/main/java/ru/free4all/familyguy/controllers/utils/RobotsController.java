@@ -1,4 +1,4 @@
-package ru.free4all.familyguy.controllers;
+package ru.free4all.familyguy.controllers.utils;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

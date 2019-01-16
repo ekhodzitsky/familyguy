@@ -1,4 +1,4 @@
-package ru.free4all.familyguy.controllers;
+package ru.free4all.familyguy.controllers.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -82,7 +82,7 @@ public class VideoService implements BasicVideoManager {
     }
 
     private void chooseTranslationIfExists(Video v, Model m) {
-        if (!v.getLinks().isEmpty()) {
+        if (v != null && !v.getLinks().isEmpty()) {
             if (v.getLinks().containsKey(Translation.FILIZA)) {
                 m.addAttribute("translation", v.getLinks().get(Translation.FILIZA));
                 m.addAttribute("tr_active", Translation.FILIZA.getAuthority());

@@ -1,4 +1,4 @@
-package ru.free4all.familyguy.interfaces;
+package ru.free4all.familyguy.interfaces.admin;
 
 import org.springframework.ui.Model;
 

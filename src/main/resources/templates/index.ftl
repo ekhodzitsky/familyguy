@@ -36,7 +36,13 @@
                 <@a.put_article/>
             </div>
         </div>
-    <#else>Контента пока нет.
+    <#else>
+        <div class="uk-section">
+            <div class="uk-container uk-width-expand uk-text-center">
+                <h3>Упс, ошибка!</h3>
+                <p>Извините, но эта серия не найдена, не загружена или не существует.</p>
+            </div>
+        </div>
     </#if>
     <div class="uk-text-center uk-flex-center" uk-grid>
         <h4>Поделиться в социальных сетях: </h4>

@@ -1,4 +1,4 @@
-package ru.free4all.familyguy.controllers;
+package ru.free4all.familyguy.controllers.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.free4all.familyguy.interfaces.AdminUserService;
+import ru.free4all.familyguy.interfaces.admin.AdminUserService;
 import ru.free4all.familyguy.interfaces.UtilsService;
 
 @Controller
