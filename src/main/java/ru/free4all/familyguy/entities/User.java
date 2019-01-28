@@ -3,20 +3,43 @@ package ru.free4all.familyguy.entities;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
 import java.util.Collection;
 import java.util.Set;
 
 @Entity
 @Table(name = "usr")
 public class User implements UserDetails {
+    /**
+     * Id.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    /**
+     * Имя пользователя.
+     */
     @Column(name = "username")
     private String username;
+    /**
+     * Пароль пользователя.
+     */
     @Column(name = "password")
     private String password;
+    /**
+     * Список ролей пользователя.
+     */
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
@@ -82,4 +105,21 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    /**
+     * Is user admin or not.
+     *
+     * @return true/false.
+     */
+    public boolean isAdmin() {
+        return getRoles().contains(Role.ADMIN);
+    }
+
+    /**
+     * Is user user or not.
+     *
+     * @return true/false.
+     */
+    public boolean isUser() {
+        return getRoles().contains(Role.USER);
+    }
 }

@@ -102,7 +102,7 @@
                   src="/static/images/sm-3.jpg" alt="Seth McFarlane 2">
         </div>
     </div>
-    <@f.footer/>
 </div>
+<@f.footer/>
 </body>
 </html>

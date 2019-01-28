@@ -1,31 +1,67 @@
 package ru.free4all.familyguy.entities;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MapKeyColumn;
+import javax.persistence.*;
+import java.util.List;
 import java.util.Map;
 
 @Entity
 public class Video {
+
+    /**
+     * Id.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    /**
+     * Num of episode.
+     */
     private Integer episode;
+
+    /**
+     * Num of season.
+     */
     private Integer season;
+
+    /**
+     * Ссылка на видео на сторонний хостинг.
+     */
     private String link;
+
+    /**
+     * Русское название серии.
+     */
     private String rusName;
+
+    /**
+     * Английское название серии.
+     */
     private String engName;
+
+    /**
+     * Описание серии.
+     */
     private String description;
+
+    /**
+     * Ключ-значение: перевод-ссылка. По enum достается ссылка на определенный перевод серии.
+     */
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "video_id")
     @MapKeyColumn(name = "translation")
     private Map<Enum<Translation>, String> links;
 
+    /**
+     * Список комментариев под видео.
+     */
+    @ElementCollection(targetClass = Comment.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "video_comments")
+    private List<Comment> comments;
+
+    /**
+     * Дефолтный конструктор.
+     */
     public Video() {
     }
 
@@ -91,5 +127,13 @@ public class Video {
 
     public void setLinks(Map<Enum<Translation>, String> links) {
         this.links = links;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

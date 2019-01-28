@@ -4,6 +4,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.free4all.familyguy.entities.Translation;
+import ru.free4all.familyguy.entities.User;
 import ru.free4all.familyguy.entities.Video;
 import ru.free4all.familyguy.interfaces.UtilsService;
 import ru.free4all.familyguy.repos.UserRepo;
@@ -179,5 +180,18 @@ public class UtilsServiceImpl implements UtilsService {
             }
         }
         return result;
+    }
+
+    /**
+     * Finds user in db.
+     *
+     * @param id id of user.
+     * @return some user.
+     */
+    @Override
+    public User getUserIfExists(String id) {
+        User user = null;
+        if (userRepo.findById(Long.parseLong(id)).isPresent()) user = userRepo.findById(Long.parseLong(id)).get();
+        return user;
     }
 }

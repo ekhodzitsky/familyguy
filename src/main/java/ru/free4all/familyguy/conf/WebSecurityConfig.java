@@ -34,7 +34,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/heroes",
             "/license",
             "/moments",
-            "/moments/**"
+            "/moments/**",
+            "/registration",
+            "/register",
+            "/adminRest/getVideoComments/**"
     };
 
     @Override

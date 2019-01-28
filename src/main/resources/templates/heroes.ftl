@@ -56,7 +56,7 @@
             <@q.quagmire/>
         </li>
     </ul>
-    <@f.footer/>
 </div>
+<@f.footer/>
 </body>
 </html>

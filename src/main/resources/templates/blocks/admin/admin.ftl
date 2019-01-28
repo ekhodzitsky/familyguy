@@ -66,7 +66,7 @@
     <div class="uk-text-meta uk-text-center" style="margin-top: 20px">
         <p><a class="uk-link-text" href="/"> <b>Вернуться на главную</b></a></p>
     </div>
-    <@f.footer/>
 </div>
+<@f.footer/>
 </body>
 </html>

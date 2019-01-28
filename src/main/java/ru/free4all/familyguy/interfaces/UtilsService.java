@@ -1,5 +1,6 @@
 package ru.free4all.familyguy.interfaces;
 
+import ru.free4all.familyguy.entities.User;
 import ru.free4all.familyguy.entities.Video;
 
 import java.util.List;
@@ -38,6 +39,14 @@ public interface UtilsService {
      * @return true/false.
      */
     boolean isUserExists(String id);
+
+    /**
+     * Finds user in db.
+     *
+     * @param id id of user.
+     * @return some user.
+     */
+    User getUserIfExists(String id);
 
     /**
      * Проверяет, существует ли такой перевод у видео.

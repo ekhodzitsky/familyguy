@@ -79,7 +79,7 @@
             </p>
         </div>
     </div>
-    <@f.footer/>
 </div>
+<@f.footer/>
 </body>
 </html>

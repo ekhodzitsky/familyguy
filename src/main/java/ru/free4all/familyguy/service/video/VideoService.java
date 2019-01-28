@@ -1,12 +1,12 @@
-package ru.free4all.familyguy.service;
+package ru.free4all.familyguy.service.video;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import ru.free4all.familyguy.entities.Translation;
 import ru.free4all.familyguy.entities.Video;
-import ru.free4all.familyguy.interfaces.BasicVideoManager;
 import ru.free4all.familyguy.interfaces.UtilsService;
+import ru.free4all.familyguy.interfaces.video.BasicVideoManager;
 import ru.free4all.familyguy.repos.VideoRepo;
 
 import java.util.ArrayList;
@@ -22,14 +22,10 @@ public class VideoService implements BasicVideoManager {
     private static final String EPISODES_ATTR = "episodes";
     private static final String SEASONS_ATTR = "seasons";
 
-    private final VideoRepo videoRepo;
-    private final UtilsService utilsService;
-
     @Autowired
-    public VideoService(VideoRepo videoRepo, UtilsService utilsService) {
-        this.videoRepo = videoRepo;
-        this.utilsService = utilsService;
-    }
+    protected VideoRepo videoRepo;
+    @Autowired
+    protected UtilsService utilsService;
 
     /**
      * Вызвращает самую новую серию сериала.

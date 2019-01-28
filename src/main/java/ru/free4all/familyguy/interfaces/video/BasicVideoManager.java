@@ -1,4 +1,4 @@
-package ru.free4all.familyguy.interfaces;
+package ru.free4all.familyguy.interfaces.video;
 
 import org.springframework.ui.Model;
 

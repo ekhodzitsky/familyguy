@@ -1,6 +1,7 @@
 package ru.free4all.familyguy.controllers.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import ru.free4all.familyguy.interfaces.admin.AdminVideoServiceExtended;
 
 @Controller
 @RequestMapping("/admin")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class AdminVideoController {
 
     private final AdminVideoServiceExtended adminVideoService;
@@ -35,6 +37,16 @@ public class AdminVideoController {
         m.addAttribute("seasons", us.getAvailableSeasons());
         return "blocks/admin/admin";
     }
+
+    // TODO : TO DELETE :
+
+    @GetMapping("/getRestList")
+    public String restList(Model m){
+        m.addAttribute("seasons", us.getAvailableSeasons());
+        return "blocks/admin/video_details_vue";
+    }
+
+    // ----------------------------------
 
     /**
      * Получение таблицы конкретного сезона.

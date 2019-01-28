@@ -63,7 +63,7 @@
              data-services="vkontakte,facebook,odnoklassniki,whatsapp,telegram">
         </div>
     </div>
-    <@f.footer/>
 </div>
+<@f.footer/>
 </body>
 </html>

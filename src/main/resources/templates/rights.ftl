@@ -100,7 +100,7 @@
             <p>Отправлять на email: <b>familyguyspace@gmail.com</b></p>
         </div>
     </div>
-    <@f.footer/>
 </div>
+<@f.footer/>
 </body>
 </html>

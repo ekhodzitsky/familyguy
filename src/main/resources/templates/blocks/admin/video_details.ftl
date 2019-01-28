@@ -16,8 +16,7 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Серия</th>
-                <th>Сезон</th>
+                <th>Серия/Cезон</th>
                 <th>Название (RUS)</th>
                 <th>Название (ENG)</th>
                 <th>Описание</th>
@@ -26,10 +25,10 @@
             </thead>
             <tbody>
             <tr>
-                <td><b>[ id: </b>${detailed.id}<b> ]</b></td>
-                <td>${detailed.episode}</td>
-                <td>${detailed.season}</td>
-                <td><#if detailed.rusName??>${detailed.rusName}</#if></td>
+                <td><b>id: </b>${detailed.id}<b></b></td>
+                <td>${detailed.episode}/${detailed.season}</td>
+                <td><#if detailed.rusName??>${detailed.rusName}<#else>-
+                    </#if></td>
                 <td><#if detailed.engName??>${detailed.engName}</#if></td>
                 <td><#if detailed.description??>${detailed.description}</#if></td>
                 <td><#if detailed.links??>

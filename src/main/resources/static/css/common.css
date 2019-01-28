@@ -105,3 +105,14 @@ h1, h2, h3, h4, h5, h6 {
 .btn-menu:hover{
     color: #ffd152;
 }
+
+.btn-icon-custom{
+    background-color: white;
+    border: 2px solid #ffd152;
+    color: black;
+}
+
+.btn-icon-custom:hover{
+    background-color: #ffd152;
+    color: black;
+}
