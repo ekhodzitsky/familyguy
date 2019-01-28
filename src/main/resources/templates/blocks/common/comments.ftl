@@ -34,15 +34,16 @@
                         <li>Недопустимые символы: '/', '*', '_', '\\', '^', '<', '>', '@', '[', ']', '{', '}', '|'.</li>
                         <li>Запрещены: флуд, мат, оскорбления, разжигание межнациональной розни,
                             пропаганда фашизма и тд., т.е. все что нарушает законы Российской Федерации.
-                            Подобные комментарии будут удаляться.</li>
+                            Подобные комментарии будут удаляться.
+                        </li>
                     </ul>
                     <p>Пишите короткие и осмысленные комментарии.</p>
                 </div>
-                </div>
+            </div>
         </div>
 
         <#if user_id??>
-        <input type="hidden" name="user_id" value="${user_id}"/>
+            <input type="hidden" name="user_id" value="${user_id}"/>
         </#if>
         <input type="hidden" name="video_id" value="${video.id}"/>
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
@@ -54,12 +55,22 @@
         <#if i!=0>
             <div id="cmnts"></div>
             <script>
+
                 Vue.component('comment-row', {
                     props: ['comment'],
                     template: '<tr>' +
                         '<th>{{comment.authorName}}</th>' +
                         '<th>{{comment.value}}</th>' +
-                        '</tr>'
+                        '<#if isAdmin>' +
+                        '<th><form v-bind:action="getUniqueLink">' +
+                        '<button class="uk-icon-button btn-icon-custom" uk-icon="close" type="submit"></button></form></th>' +
+                        '</#if>' +
+                        '</tr>',
+                    computed: {
+                        getUniqueLink: function () {
+                            return '/remove_comment/' + this.comment.id + '/${video.id}'
+                        }
+                    }
                 });
 
                 Vue.component('comments-list', {
