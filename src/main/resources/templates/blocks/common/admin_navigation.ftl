@@ -32,6 +32,7 @@
                     </#if>
                 </div>
             </div>
+            <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/admin/comment_remove">Удалить комментарий</a>
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/admin">Новое видео</a>
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/admin/translation">Перевод</a>
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/admin/names">Описание</a>
