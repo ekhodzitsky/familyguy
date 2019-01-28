@@ -21,6 +21,7 @@
                 <th>Название (ENG)</th>
                 <th>Описание</th>
                 <th>Переводы</th>
+                <th>Комментарии</th>
             </tr>
             </thead>
             <#list season as v>
@@ -40,6 +41,9 @@
                             </#list>
                         </#if>
                     </td>
+                    <td><#if v.comments??>
+                      Кол-во:  ${v.comments?size}
+                    </#if></td>
                 </tr>
                 </tbody>
             </#list>
