@@ -43,7 +43,6 @@
                 <div class="uk-height-large uk-flex-center" uk-grid>
                     <#if translation??>${translation}<#else>${video.link}</#if>
                 </div>
-                <@com.put_comments video.comments/>
                 <@a.put_article/>
             </div>
         </div>
