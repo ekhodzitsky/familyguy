@@ -5,7 +5,7 @@
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/license">Пользовательское соглашение</a>
             <a class="uk-button uk-button-default uk-button-small btn-nav-without-increasing-size" href="/rights">Правообладателям</a>
         </div>
-       created by alittlem1nd, 2018-2019
+       2018-2019
     </div>
 </#macro>
 <#-- /footer -->
